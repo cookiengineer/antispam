@@ -153,6 +153,8 @@
 }, {
 	"domain": "elasticemail.com",
 	"networks": [
+		"67.227.87.0/24",
+		"216.169.99.0/24"
 	]
 }, {
 	"domain": "fastly.com",
@@ -168,6 +170,12 @@
 	"domain": "krystal.uk",
 	"networks": [
 		"77.72.0.0/24"
+	]
+}, {
+	"domain": "mailchimpapp.net",
+	"networks": [
+		"198.2.128.0/18",
+		"205.201.128.0/20"
 	]
 }, {
 	"domain": "mailgun.net",
@@ -186,6 +194,7 @@
 }, {
 	"domain": "ovhcloud.com",
 	"networks": [
+		"51.178.0.0/16",
 		"51.195.0.0/16",
 		"79.137.0.0/17",
 		"91.134.0.0/16",
@@ -233,6 +242,7 @@
 }, {
 	"domain": "sendgrid.info",
 	"networks": [
+		"149.72.0.0/16",
 		"167.89.0.0/17"
 	]
 }, {
