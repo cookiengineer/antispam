@@ -154,6 +154,8 @@
 	"domain": "elasticemail.com",
 	"networks": [
 		"67.227.87.0/24",
+		"96.45.64.0/20",
+		"96.45.68.0/24",
 		"216.169.99.0/24"
 	]
 }, {
@@ -259,6 +261,13 @@
 	],
 	"networks": [
 		"192.174.80.0/20"
+	]
+}, {
+	"domain": "tzulo.com",
+	"aliases": [
+	],
+	"networks": [
+		"68.235.32.0/19"
 	]
 }, {
 	"domain": "verizonmedia.com",
