@@ -169,6 +169,13 @@
 		"107.180.0.0/17"
 	]
 }, {
+	"domain": "internet-webhosting.com",
+	"networks": [
+		"103.8.24.0/24",
+		"103.8.25.0/24",
+		"103.8.26.0/24"
+	]
+}, {
 	"domain": "krystal.uk",
 	"networks": [
 		"77.72.0.0/24"
