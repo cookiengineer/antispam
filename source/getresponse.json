@@ -1,0 +1,10 @@
+[{
+	"domain": "getresponse.com",
+	"aliases": [
+		"getresponse-email.com",
+		"getresponse-mail.com"
+	],
+	"networks": [
+		"104.160.64.0/20"
+	]
+}]
