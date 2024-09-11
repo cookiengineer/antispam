@@ -1,0 +1,6 @@
+[{
+	"domain": "fastly.com",
+	"networks": [
+		"151.101.0.0/16"
+	]
+}]

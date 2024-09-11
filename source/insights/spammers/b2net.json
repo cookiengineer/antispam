@@ -1,6 +1,8 @@
 [{
 	"domain": "b2netsolutions.com",
 	"aliases": [
+		"b2net.com",
+		"b2net.net"
 	],
 	"networks": [
 		"172.245.0.0/22",
