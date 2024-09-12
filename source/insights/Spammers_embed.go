@@ -38,6 +38,8 @@ func init() {
 
 				}
 
+				Spammers.FlushAliases()
+
 			}
 
 		}

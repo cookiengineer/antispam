@@ -32,10 +32,6 @@ func (spammermap *SpammerMap) AddSpammer(value Spammer) bool {
 
 		spammermap.Domains[value.Domain] = &value
 
-		for a := 0; a < len(value.Aliases); a++ {
-			spammermap.Domains[value.Aliases[a]] = &value
-		}
-
 		for n := 0; n < len(value.Networks); n++ {
 
 			network := value.Networks[n]
@@ -104,6 +100,25 @@ func (spammermap *SpammerMap) AddSpammer(value Spammer) bool {
 	}
 
 	return result
+
+}
+
+func (spammermap *SpammerMap) FlushAliases() {
+
+	for domain, spammer := range spammermap.Domains {
+
+		for a := 0; a < len(spammer.Aliases); a++ {
+
+			alias := spammer.Aliases[a]
+			_, ok := spammermap.Domains[alias]
+
+			if ok == false {
+				spammermap.Domains[alias] = spammermap.Domains[domain]
+			}
+
+		}
+
+	}
 
 }
 
