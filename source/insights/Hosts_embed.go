@@ -1,7 +1,6 @@
 package insights
 
 import "antispam/structs"
-import "encoding/json"
 import "embed"
 import "strings"
 

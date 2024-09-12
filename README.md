@@ -13,14 +13,14 @@ policies because they have a conflict of interest to their paying customers (obv
 The usage of this tool is intended to be used via `cronjob`s or via `exec` on event.
 
 ```bash
-# Check an email for spam
+# View an email and check for spam indicators
 antispam view path/to/mail.eml;
 
-# If an email is spam, return exit code 0
-antispam is-spam path/to/mail.eml;
+# If an email is spam, return exit code 1
+antispam classify path/to/mail.eml;
 
 # Mark an email as spam
-antispam mark path/to/mail.eml;
+antispam mark-spam path/to/mail.eml;
 ```
 
 
@@ -34,19 +34,6 @@ cd /path/to/antispam/toolchain;
 
 # Upload and install postmap files
 go run postfix.go install root@your.server.tld:2222;
-```
-
-
-## Usage / Installation
-
-Automated usage using the [install.sh](/install.sh) script:
-
-```bash
-# Generate postmap files
-bash make.sh;
-
-# Upload postmap files to /etc/postfix/{blocked_clients,blocked_senders} automagically
-bash install.sh your.server.tld:2222;
 ```
 
 
