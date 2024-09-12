@@ -1,3 +1,4 @@
 !/build/.gitkeep
 /build/blocked_clients
 /build/blocked_senders
+/build/antispam-*

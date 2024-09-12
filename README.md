@@ -27,6 +27,18 @@ antispam classify path/to/mail.eml;
 antispam mark --json path/to/mail.eml;
 ```
 
+## Building
+
+```bash
+# Build binary
+cd /path/to/antispam/toolchain;
+go run build.go;
+
+# Execute binary
+cd /path/to/antispam/build;
+./antispam-linux-amd64;
+```
+
 
 ## Postfix Configuration
 
