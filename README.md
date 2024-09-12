@@ -29,7 +29,12 @@ antispam mark --json path/to/mail.eml;
 
 ## Building
 
+The build [toolchain](./toolchain) is implemented in `go`, so you only need to install `go` first.
+
 ```bash
+# Install go compiler/framework
+sudo pacman -S go;
+
 # Build binary
 cd /path/to/antispam/toolchain;
 go run build.go;
