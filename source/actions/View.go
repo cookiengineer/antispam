@@ -6,10 +6,11 @@ import "antispam/structs"
 import "antispam/types"
 import "os"
 import "strings"
+import "time"
 
-func View(file string) bool {
+func View(file string) (*types.Email, *structs.Spammer) {
 
-	var result bool = false
+	var email *types.Email = nil
 	var spammer *structs.Spammer = nil
 
 	stat, err0 := os.Stat(file)
@@ -20,9 +21,11 @@ func View(file string) bool {
 
 		if err1 == nil && types.IsEmail(buffer) {
 
-			email := types.ParseEmail(buffer)
+			email = types.ParseEmail(buffer)
 
 			if email != nil {
+
+				reasons := make([]string, 0)
 
 				if spammer == nil {
 
@@ -31,6 +34,7 @@ func View(file string) bool {
 						check := insights.Spammers.SearchDomain(email.Domains[d])
 
 						if check != nil {
+							reasons = append(reasons, email.Domains[d])
 							spammer = check
 							break
 						}
@@ -46,6 +50,7 @@ func View(file string) bool {
 						check := insights.Spammers.SearchIPv4(email.IPv4s[i])
 
 						if check != nil {
+							reasons = append(reasons, email.IPv4s[i])
 							spammer = check
 							break
 						}
@@ -61,6 +66,7 @@ func View(file string) bool {
 						check := insights.Spammers.SearchIPv6(email.IPv6s[i])
 
 						if check != nil {
+							reasons = append(reasons, email.IPv6s[i])
 							spammer = check
 							break
 						}
@@ -73,20 +79,9 @@ func View(file string) bool {
 
 				console.Log("ID:       " + email.MessageID)
 				console.Log("Boundary: " + email.Boundary)
-
-				if email.From != "" {
-
-					if spammer != nil {
-						console.Error("From:     " + email.From)
-					} else {
-						console.Log("From:     " + email.From)
-					}
-
-				}
-
-				if email.To != "" {
-					console.Log("To:       " + email.To)
-				}
+				console.Log("From:     " + email.From)
+				console.Log("To:       " + email.To)
+				console.Log("Date:     " + email.Date.Format(time.RFC3339))
 
 				if email.Subject != "" {
 					console.Log("Subject:  " + email.Subject)
@@ -98,9 +93,15 @@ func View(file string) bool {
 				console.Log("IPv4s:    " + strings.Join(email.IPv4s, ", "))
 				console.Log("IPv6s:    " + strings.Join(email.IPv6s, ", "))
 
-				console.GroupEnd("-------")
+				if spammer != nil {
+					console.Error("Rating:   E-Mail is classified as spam!")
+					console.Error("Spammer:  \"" + spammer.Domain + "\"")
+					console.Error("Reasons:  " + strings.Join(reasons, ", "))
+				} else {
+					console.Info("Rating:    E-Mail is not classified as spam.")
+				}
 
-				// TODO: email.Date
+				console.GroupEnd("-------")
 
 				if email.Message != "" {
 
@@ -116,34 +117,12 @@ func View(file string) bool {
 
 				}
 
-				result = true
-
-			} else {
-
-				console.Error("Cannot parse file \"" + file + "\"")
-
 			}
-
-		} else {
-
-			console.Error("Cannot parse file \"" + file + "\"")
 
 		}
 
-	} else {
-
-		console.Error("Cannot read file \"" + file + "\"")
-
 	}
 
-	return result
-
-	// TODO: Parse E-Mail
-	// TODO: Lookup Domains in HostMap
-	// TODO: Lookup IPs in SpammerMap
-
-	// TODO: Render E-Mail as text
-	// TODO: If spammer found, then render email headers via console.Warn()
-	// TODO: else render them via console.Log()
+	return email, spammer
 
 }

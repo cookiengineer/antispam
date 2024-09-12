@@ -7,8 +7,9 @@ Currently this repository reflects the spam that I or my customers receive on a 
 basis, whereas it also includes providers that refuse to abide with the `abuse` report
 policies because they have a conflict of interest to their paying customers (obviously).
 
-
 ## Usage
+
+![screenshot](./guides/screenshot.png)
 
 The usage of this tool is intended to be used via `cronjob`s or via `exec` on event.
 

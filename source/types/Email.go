@@ -243,7 +243,7 @@ func ParseEmail(buffer []byte) *Email {
 
 			}
 
-		} else if strings.HasPrefix(line, "Message-ID: ") {
+		} else if strings.HasPrefix(line, "Message-ID: ") || strings.HasPrefix(line, "Message-Id: ") {
 
 			tmp1 := strings.TrimSpace(line[12:])
 
@@ -251,12 +251,25 @@ func ParseEmail(buffer []byte) *Email {
 				email.MessageID = tmp1[1:len(tmp1)-1]
 			}
 
+		} else if strings.HasPrefix(line, "Date: ") {
+
+			tmp1 := strings.TrimSpace(line[6:])
+
+			time1, err1 := time.Parse(time.RFC1123, tmp1)
+			time2, err2 := time.Parse(time.RFC1123Z, tmp1)
+
+			if err1 == nil {
+				email.Date = time1
+			} else if err2 == nil {
+				email.Date = time2
+			}
+
 		} else if strings.HasPrefix(line, "From: ") {
 
 			tmp1 := strings.TrimSpace(line[6:])
 
 			if strings.Contains(tmp1, "<") && strings.HasSuffix(tmp1, ">") {
-				tmp1 = tmp1[1:len(tmp1)-1]
+				tmp1 = tmp1[strings.Index(tmp1, "<")+1:len(tmp1)-1]
 			}
 
 			address := strings.TrimSpace(tmp1)
@@ -273,7 +286,7 @@ func ParseEmail(buffer []byte) *Email {
 			tmp1 := strings.TrimSpace(line[4:])
 
 			if strings.Contains(tmp1, "<") && strings.HasSuffix(tmp1, ">") {
-				tmp1 = tmp1[1:len(tmp1)-1]
+				tmp1 = tmp1[strings.Index(tmp1, "<")+1:len(tmp1)-1]
 			}
 
 			address := strings.TrimSpace(tmp1)
@@ -315,10 +328,27 @@ func ParseEmail(buffer []byte) *Email {
 		message := strings.TrimSpace(raw_buffer[strings.Index(raw_buffer, "--" + email.Boundary) + len(email.Boundary)+2:])
 
 		if strings.Contains(message, email.Boundary) {
-			message = message[0:strings.Index(message, "--" + email.Boundary)]
-		}
 
-		email.Message = strings.TrimSpace(message)
+			contents := strings.Split(message, "--" + email.Boundary)
+
+			if len(contents) == 3 {
+
+				for c := 0; c < len(contents); c++ {
+
+					content := contents[c]
+
+					if strings.Contains(content, "Content-Type: text/plain") {
+						email.Message = strings.TrimSpace(content)
+						break
+					}
+
+				}
+
+			} else if len(contents) == 2 {
+				email.Message = message[0:strings.Index(message, "--" + email.Boundary)]
+			}
+
+		}
 
 	}
 
