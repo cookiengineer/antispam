@@ -14,14 +14,17 @@ policies because they have a conflict of interest to their paying customers (obv
 The usage of this tool is intended to be used via `cronjob`s or via `exec` on event.
 
 ```bash
+# View usage help
+antispam;
+
 # View an email and check for spam indicators
 antispam view path/to/mail.eml;
 
 # If an email is spam, return exit code 1
 antispam classify path/to/mail.eml;
 
-# Mark an email as spam
-antispam mark-spam path/to/mail.eml;
+# Mark an email as spam, output new spammer ready for pull-request
+antispam mark --json path/to/mail.eml;
 ```
 
 
@@ -36,6 +39,19 @@ cd /path/to/antispam/toolchain;
 # Upload and install postmap files
 go run postfix.go install root@your.server.tld:2222;
 ```
+
+
+## Pull Requests
+
+Pull Requests are certainly welcome! I don't like spam, and so do you, I guess?
+So let's fight spam together!
+
+If you want to contribute a new Spammer entry (generated via `antispam mark --json <file>`,
+please make sure to use the same naming scheme for the files.
+
+Each spammer organization has a separate JSON file, containing an Array of [structs.Spammer](./source/structs/Spammer.go).
+For example, [Amazon](./source/insights/spammers/amazon.json) contains the `structs.Spammer`
+instances for Amazon US, Amazon EU, Amazon JP etc.
 
 
 # License
