@@ -28,13 +28,20 @@ of known senders.
 ## Postmap Generation
 
 ```bash
-cd /path/to/antispam/toolchain;
-
 # Generate postmap files in /build
+cd /path/to/antispam/toolchain;
 go run postfix.go generate;
 
-# Upload and install postmap files
-# Then execute "postmap" and "systemctl restart postfix"
-go run postfix.go install root@your.server.tld:2222;
+# Upload postmap files to server
+cd /path/to/antispam/build;
+scp blocked_clients root@your.server.tld:/etc/postfix/blocked_clients;
+scp blocked_senders root@your.server.tld:/etc/postfix/blocked_senders;
+
+# On the server, run postmap and restart postfix
+ssh root@your.server.tld;
+postmap /etc/postfix/blocked_clients;
+postmap /etc/postfix/blocked_senders;
+
+systemctl restart postfix;
 ```
 

@@ -20,9 +20,9 @@ if [[ "${GO}" != "" ]] && [[ "${SSH}" != "" ]]; then
 
 	if [[ "${GUEST_HOST}" != "" ]]; then
 
-		cd "${ROOT}";
+		cd "${ROOT}/toolchain";
 
-		bash "${ROOT}/make.sh";
+		${GO} run postfix.go generate;
 
 		if [[ "$?" == "0" ]]; then
 
