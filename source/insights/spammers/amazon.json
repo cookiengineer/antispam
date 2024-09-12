@@ -4,7 +4,8 @@
 		"amazon.cn",
 		"amazon.ir",
 		"amazon.jp",
-		"amazon.sg"
+		"amazon.sg",
+		"amazonses.com"
 	],
 	"networks": [
 		"3.0.0.0/8",

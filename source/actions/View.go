@@ -94,17 +94,9 @@ func View(file string) bool {
 					console.Log("Subject:  (no subject)")
 				}
 
-				if len(email.Domains) > 0 {
-					console.Log("Domains:  " + strings.Join(email.Domains, ", "))
-				}
-
-				if len(email.IPv4s) > 0 {
-					console.Log("IPv4s:    " + strings.Join(email.IPv4s, ", "))
-				}
-
-				if len(email.IPv6s) > 0 {
-					console.Log("IPv6s:    " + strings.Join(email.IPv6s, ", "))
-				}
+				console.Log("Domains:  " + strings.Join(email.Domains, ", "))
+				console.Log("IPv4s:    " + strings.Join(email.IPv4s, ", "))
+				console.Log("IPv6s:    " + strings.Join(email.IPv6s, ", "))
 
 				console.GroupEnd("-------")
 
