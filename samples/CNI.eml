@@ -1,0 +1,1072 @@
+Return-Path: <b-0le8p62uvdo03l-h36-l6frdux6dg@emails.prtshocks.com>
+Delivered-To: johndoe@example.com
+Received: from mail.example.com
+	by mail.example.com with LMTP
+	id +VN6OZjurWaHogMAEqqbnA
+	(envelope-from <b-0le8p62uvdo03l-h36-l6frdux6dg@emails.prtshocks.com>)
+	for <johndoe@example.com>; Sat, 03 Aug 2024 08:47:20 +0000
+Authentication-Results: mail.example.com;
+	dkim=pass (2048-bit key; unprotected) header.d=prtshocks.com header.i=prtmedia@prtshocks.com header.a=rsa-sha256 header.s=ipz2 header.b=PQAucp/f;
+	dkim=pass (2048-bit key; unprotected) header.d=mrelayip.com header.i=@mrelayip.com header.a=rsa-sha256 header.s=ipzs1 header.b=jHyRiun0;
+	dkim-atps=neutral
+Received: from cole.dyd.es (cole.dyd.es [82.199.156.28])
+	by mail.example.com (Postfix) with ESMTPS id 571FE20BD542
+	for <johndoe@example.com>; Sat,  3 Aug 2024 08:47:19 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; s=ipz2; d=prtshocks.com;
+ h=From:To:Message-ID:Subject:MIME-Version:Content-Type:
+ Content-Transfer-Encoding:List-Unsubscribe:List-Unsubscribe-Post:Date;
+ i=prtmedia@prtshocks.com;
+ bh=+roWzfWUNLMSLMtmzcWJd4SKDDroFwazWjc1SVdpyx0=;
+ b=PQAucp/f1wooM64P/bhHRmHLxu5/cMULyHE6uxUZJjYCgQRRQrlBCoUFrAXMHIh3YUxY0KNcuuJe
+   Y9p3LPmkLhHGFrEwh+9C/rHdJG7r4EjZDQBy64XmB9jZYGkhLULkSqQk5smKeSzU8zzzpKlMxsTY
+   DoFon6Kz8S4ueqK4uZBSUOTbEhm8XFXXwNc8Mf+Mz/L1RUMNtztC/fKWBtqQcMxkaaB9MeQsQSse
+   NWo7IawJMuUnH+Uv+Pk+roT9TN98bHWVxELVXhC+qvvIld/pgzDsKlZn0W04eJh+byRlJ1duGUBz
+   zQBku8WMg4UK+AgPOeLlAwiC9ZEN1MEpqjLi+w==
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; s=ipzs1; d=mrelayip.com;
+ h=From:To:Message-ID:Subject:MIME-Version:Content-Type:
+ Content-Transfer-Encoding:List-Unsubscribe:List-Unsubscribe-Post:Date;
+ bh=+roWzfWUNLMSLMtmzcWJd4SKDDroFwazWjc1SVdpyx0=;
+ b=jHyRiun05Vp3hl9Y1QciULclKU87Y2kOEBz9FpAfiLP5XRGDUiSSbc1iFTQYObJ+eRHRno/Jzxix
+   OF6VreV/BAiyHzoTPhcgVQhrUX+DWnxiYrTJM8NXwLj5Wg788Jvx6Bt3sGmH24NIZekDm6W6W9W3
+   OJFDaBm4vs3Z+9A9E++3T03Gf/Dy6YXJAXDnFP83dlDnn0z1hiumJIor/4nBY610X+ajN5me1zdR
+   oY1Y+VO81QRm3FLJ0kZ0V/UVvFdF71PuMtvvLRXiCRmAnoCZFxnt9tmq2re68hJcjHUCl3Od8ldr
+   OgAKpzdXRKTItcU+DbIt1KB4MCGE4+2MNWpFbg==
+From: ADD Group <prtmedia@prtshocks.com>
+To: johndoe@example.com
+Message-ID: <1_q52RwI1j2Z@emails.prtshocks.com>
+Subject: Automechanika Frankfurt 2024 - ADD Group
+MIME-Version: 1.0
+Content-Type: multipart/alternative;
+ boundary="--==_mimepart_66adee968cb04_1382e827597d";
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+X-SEID: 1_q52RwI1j2Z
+List-Unsubscribe: <mailto:0le8p62uvdo03l-h36-l6frdux6dg@unsubscribe.s.mx-router-iii.com>,
+ <https://emails.prtshocks.com/unsubscribe/0o7p5/list_unsubscribe?token=tibtg4lg&unsubscribe_token=h36-l6frdux6dg>
+List-Unsubscribe-Post: List-Unsubscribe=One-Click
+X-Report-Abuse: Please report abuse for this campaign here:
+ https://prtshocks1.mx-router-iii.com/abuse_reports/new?id=0o7p5&token=tibtg4lg
+Feedback-ID: 443699:443699-1:campaign:IPZMR
+Date: Sat, 3 Aug 2024 08:47:20 +0000
+
+
+----==_mimepart_66adee968cb04_1382e827597d
+Content-Type: text/plain;
+ charset=UTF-8
+Content-Transfer-Encoding: quoted-printable
+
+Automechanika Frankfurt 2024 - ADD Group
+
+
+email-divulga=C3=A7=C3=A3o_01.png =
+
+( https://emails.prtshocks.com/c/0o7p5/tibtg4lg/-i0aotz78ug )
+
+email-divulga=C3=A7=C3=A3o_02.png =
+
+( https://emails.prtshocks.com/c/0o7p5/tibtg4lg/7sdwlpx34cg )
+
+email-divulga=C3=A7=C3=A3o_03.png =
+
+( https://emails.prtshocks.com/c/0o7p5/tibtg4lg/63e_xlbvrai )
+
+email-divulga=C3=A7=C3=A3o_04.png =
+
+( https://emails.prtshocks.com/c/0o7p5/tibtg4lg/thdofraki_0 )
+
+email-divulga=C3=A7=C3=A3o_05.png =
+
+( https://emails.prtshocks.com/c/0o7p5/tibtg4lg/v_xjjunpkpm )
+
+email-divulga=C3=A7=C3=A3o_06.png =
+
+( https://emails.prtshocks.com/c/0o7p5/tibtg4lg/zm9cf1aeyda )
+
+email-divulga=C3=A7=C3=A3o_07.png =
+
+( https://emails.prtshocks.com/c/0o7p5/tibtg4lg/sgaia3qbqda )
+
+In compliance with the provisions of Data Protection, to
+exercise your rights of access, rectification, cancellation and
+opposition to the processing of your personal data, contained in
+our data protection conditions, you only have to respond to this
+e-mail indicating your email in the subject, or by sending an
+ordinary mail to the address: INCLUDE ADDRESS. If you want to
+unsubscribe you can also click here =
+
+( https://emails.prtshocks.com/unsubscribe/0o7p5/click?token=3Dtibtg4lg )=
+
+.=
+
+----==_mimepart_66adee968cb04_1382e827597d
+Content-Type: text/html;
+ charset=UTF-8
+Content-Transfer-Encoding: quoted-printable
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN" "http://www=
+.w3.org/TR/REC-html40/loose.dtd">
+<html>
+<head>
+        <title>Automechanika Frankfurt 2024 - ADD Group</title>
+        <!--[if !mso]><!-->
+        <meta http-equiv=3D"X-UA-Compatible" content=3D"IE=3Dedge">
+        <!--<![endif]-->
+        <meta http-equiv=3D"Content-Type" content=3D"text/html; charset=3D=
+UTF-8">
+        <meta name=3D"viewport" content=3D"width=3Ddevice-width, initial-=
+scale=3D1">
+        <style type=3D"text/css">
+          #outlook a { padding:0; }
+          body { margin:0;padding:0;-webkit-text-size-adjust:100%;-ms-tex=
+t-size-adjust:100%; }
+          table, td { border-collapse:collapse;mso-table-lspace:0pt;mso-t=
+able-rspace:0pt; }
+          img { border:0;height:auto;line-height:100%; outline:none;text-=
+decoration:none;-ms-interpolation-mode:bicubic; }
+          p { display:block;margin:13px 0; }
+        </style>
+        <!--[if mso]>
+        <noscript>
+        <xml>
+        <o:OfficeDocumentSettings>
+          <o:AllowPNG/>
+          <o:PixelsPerInch>96</o:PixelsPerInch>
+        </o:OfficeDocumentSettings>
+        </xml>
+        </noscript>
+        <![endif]-->
+        <!--[if lte mso 11]>
+        <style type=3D"text/css">
+          .mj-outlook-group-fix { width:100% !important; }
+        </style>
+        <![endif]-->
+        =
+
+        =
+
+    <style type=3D"text/css">
+      @media only screen and (min-width:480px) {
+        .mj-column-per-100 { width:100% !important; max-width: 100%; }
+      }
+    </style>
+    <style media=3D"screen and (min-width:480px)">
+      .moz-text-html .mj-column-per-100 { width:100% !important; max-widt=
+h: 100%; }
+    </style>
+    =
+
+  =
+
+        <style type=3D"text/css">
+        =
+
+        =
+
+
+    @media only screen and (max-width:480px) {
+      table.mj-full-width-mobile { width: 100% !important; }
+      td.mj-full-width-mobile { width: auto !important; }
+    }
+  =
+
+        </style>
+        =
+
+        =
+
+      </head>
+      <body style=3D"word-spacing:normal;background-color:#ffffff;">
+<div class=3D"ed-preview-text" style=3D"display: none; font-size: 0px; li=
+ne-height: 0px; max-height: 0px; max-width: 0px; opacity: 0; overflow: hi=
+dden; visibility: hidden; mso-hide: all">Automechanika Frankfurt 2024 - A=
+DD Group</div>
+        =
+
+        =
+
+      <div style=3D"background-color:#ffffff;">
+        =
+
+      <table align=3D"center" class=3D"ed-section ed-section-header" bord=
+er=3D"0" cellpadding=3D"0" cellspacing=3D"0" role=3D"presentation" style=3D=
+"background:#ffffff;background-color:#ffffff;width:100%;">
+        <tbody>
+          <tr>
+            <td>
+              =
+
+        =
+
+      <!--[if mso | IE]><table align=3D"center" border=3D"0" cellpadding=3D=
+"0" cellspacing=3D"0" class=3D"ed-section-outlook ed-section-header-outlo=
+ok" role=3D"presentation" style=3D"width:700px;" width=3D"700" bgcolor=3D=
+"#ffffff" ><tr><td style=3D"line-height:0px;font-size:0px;mso-line-height=
+-rule:exactly;"><![endif]-->
+    =
+
+        =
+
+      <div style=3D"margin:0px auto;max-width:700px;">
+        =
+
+        <table align=3D"center" border=3D"0" cellpadding=3D"0" cellspacin=
+g=3D"0" role=3D"presentation" style=3D"width:100%;">
+          <tbody>
+            <tr>
+              <td style=3D"direction:ltr;font-size:0px;padding:20px 0;pad=
+ding-bottom:0px;padding-top:0px;text-align:center;">
+                <!--[if mso | IE]><table role=3D"presentation" border=3D"=
+0" cellpadding=3D"0" cellspacing=3D"0"><tr><td class=3D"ed-block-outlook =
+ed-block-7-outlook" width=3D"700px" ><table align=3D"center" border=3D"0"=
+ cellpadding=3D"0" cellspacing=3D"0" class=3D"ed-block-outlook ed-block-7=
+-outlook" role=3D"presentation" style=3D"width:700px;" width=3D"700" ><tr=
+><td style=3D"line-height:0px;font-size:0px;mso-line-height-rule:exactly;=
+"><![endif]-->
+    =
+
+      =
+
+      <div class=3D"ed-block ed-block-7" style=3D"margin:0px auto;max-wid=
+th:700px;">
+        =
+
+        <table align=3D"center" border=3D"0" cellpadding=3D"0" cellspacin=
+g=3D"0" role=3D"presentation" style=3D"width:100%;">
+          <tbody>
+            <tr>
+              <td style=3D"direction:ltr;font-size:0px;padding:20px 0;pad=
+ding-bottom:0px;padding-top:0px;text-align:center;">
+                <!--[if mso | IE]><table role=3D"presentation" border=3D"=
+0" cellpadding=3D"0" cellspacing=3D"0"><tr><td class=3D"" style=3D"vertic=
+al-align:top;width:700px;" ><![endif]-->
+            =
+
+      <div class=3D"mj-column-per-100 mj-outlook-group-fix" style=3D"font=
+-size:0px;text-align:left;direction:ltr;display:inline-block;vertical-ali=
+gn:top;width:100%;">
+        =
+
+      <table border=3D"0" cellpadding=3D"0" cellspacing=3D"0" role=3D"pre=
+sentation" style=3D"vertical-align:top;" width=3D"100%">
+        <tbody>
+          =
+
+              <tr>
+                <td align=3D"center" style=3D"font-size:0px;padding:0 10p=
+x;word-break:break-word;">
+                  =
+
+      <table border=3D"0" cellpadding=3D"0" cellspacing=3D"0" role=3D"pre=
+sentation" style=3D"border-collapse:collapse;border-spacing:0px;">
+        <tbody>
+          <tr>
+            <td style=3D"width:680px;">
+              =
+
+        <a href=3D"https://emails.prtshocks.com/c/0o7p5/tibtg4lg/-i0aotz7=
+8ug" target=3D"_blank">
+          =
+
+      <img alt=3D"email-divulga=C3=A7=C3=A3o_01.png" height=3D"auto" src=3D=
+"https://emails.prtshocks.com/data/ed221990c90356047ee4824e49abaa0b668b13=
+39/media_files/1/original/email-divulga%C3%A7%C3%A3o_01.png" style=3D"bor=
+der:0;display:block;outline:none;text-decoration:none;height:auto;width:1=
+00%;font-size:13px;" width=3D"680">
+    =
+
+        </a>
+      =
+
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    =
+
+                </td>
+              </tr>
+            =
+
+        </tbody>
+      </table>
+    =
+
+      </div>
+    =
+
+          <!--[if mso | IE]></td></tr></table><![endif]-->
+              </td>
+            </tr>
+          </tbody>
+        </table>
+        =
+
+      </div>
+    =
+
+      =
+
+      <!--[if mso | IE]></td></tr></table></td></tr></table><![endif]-->
+              </td>
+            </tr>
+          </tbody>
+        </table>
+        =
+
+      </div>
+    =
+
+        =
+
+      <!--[if mso | IE]></td></tr></table><![endif]-->
+    =
+
+      =
+
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    =
+
+      <table align=3D"center" class=3D"ed-section ed-section-content" bor=
+der=3D"0" cellpadding=3D"0" cellspacing=3D"0" role=3D"presentation" style=
+=3D"background:#ffffff;background-color:#ffffff;width:100%;">
+        <tbody>
+          <tr>
+            <td>
+              =
+
+        =
+
+      <!--[if mso | IE]><table align=3D"center" border=3D"0" cellpadding=3D=
+"0" cellspacing=3D"0" class=3D"ed-section-outlook ed-section-content-outl=
+ook" role=3D"presentation" style=3D"width:700px;" width=3D"700" bgcolor=3D=
+"#ffffff" ><tr><td style=3D"line-height:0px;font-size:0px;mso-line-height=
+-rule:exactly;"><![endif]-->
+    =
+
+        =
+
+      <div style=3D"margin:0px auto;max-width:700px;">
+        =
+
+        <table align=3D"center" border=3D"0" cellpadding=3D"0" cellspacin=
+g=3D"0" role=3D"presentation" style=3D"width:100%;">
+          <tbody>
+            <tr>
+              <td style=3D"direction:ltr;font-size:0px;padding:20px 0;pad=
+ding-bottom:0px;padding-top:0px;text-align:center;">
+                <!--[if mso | IE]><table role=3D"presentation" border=3D"=
+0" cellpadding=3D"0" cellspacing=3D"0"><tr><td class=3D"ed-block-outlook =
+ed-block-77673964-fbed-4f14-8319-39b72a7645d8-outlook" width=3D"700px" ><=
+table align=3D"center" border=3D"0" cellpadding=3D"0" cellspacing=3D"0" c=
+lass=3D"ed-block-outlook ed-block-77673964-fbed-4f14-8319-39b72a7645d8-ou=
+tlook" role=3D"presentation" style=3D"width:700px;" width=3D"700" ><tr><t=
+d style=3D"line-height:0px;font-size:0px;mso-line-height-rule:exactly;"><=
+![endif]-->
+    =
+
+      =
+
+      <div class=3D"ed-block ed-block-77673964-fbed-4f14-8319-39b72a7645d=
+8" style=3D"margin:0px auto;max-width:700px;">
+        =
+
+        <table align=3D"center" border=3D"0" cellpadding=3D"0" cellspacin=
+g=3D"0" role=3D"presentation" style=3D"width:100%;">
+          <tbody>
+            <tr>
+              <td style=3D"direction:ltr;font-size:0px;padding:20px 0;pad=
+ding-bottom:0px;padding-top:0px;text-align:center;">
+                <!--[if mso | IE]><table role=3D"presentation" border=3D"=
+0" cellpadding=3D"0" cellspacing=3D"0"><tr><td class=3D"" style=3D"vertic=
+al-align:top;width:700px;" ><![endif]-->
+            =
+
+      <div class=3D"mj-column-per-100 mj-outlook-group-fix" style=3D"font=
+-size:0px;text-align:left;direction:ltr;display:inline-block;vertical-ali=
+gn:top;width:100%;">
+        =
+
+      <table border=3D"0" cellpadding=3D"0" cellspacing=3D"0" role=3D"pre=
+sentation" style=3D"vertical-align:top;" width=3D"100%">
+        <tbody>
+          =
+
+              <tr>
+                <td align=3D"center" style=3D"font-size:0px;padding:0 10p=
+x;word-break:break-word;">
+                  =
+
+      <table border=3D"0" cellpadding=3D"0" cellspacing=3D"0" role=3D"pre=
+sentation" style=3D"border-collapse:collapse;border-spacing:0px;">
+        <tbody>
+          <tr>
+            <td style=3D"width:680px;">
+              =
+
+        <a href=3D"https://emails.prtshocks.com/c/0o7p5/tibtg4lg/7sdwlpx3=
+4cg" target=3D"_blank">
+          =
+
+      <img alt=3D"email-divulga=C3=A7=C3=A3o_02.png" height=3D"auto" src=3D=
+"https://emails.prtshocks.com/data/ed221990c90356047ee4824e49abaa0b668b13=
+39/media_files/2/original/email-divulga%C3%A7%C3%A3o_02.png" style=3D"bor=
+der:0;display:block;outline:none;text-decoration:none;height:auto;width:1=
+00%;font-size:13px;" width=3D"680">
+    =
+
+        </a>
+      =
+
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    =
+
+                </td>
+              </tr>
+            =
+
+        </tbody>
+      </table>
+    =
+
+      </div>
+    =
+
+          <!--[if mso | IE]></td></tr></table><![endif]-->
+              </td>
+            </tr>
+          </tbody>
+        </table>
+        =
+
+      </div>
+    =
+
+      =
+
+      <!--[if mso | IE]></td></tr></table></td></tr><tr><td class=3D"ed-b=
+lock-outlook ed-block-5e3d16a9-9ef9-42ec-90bb-a3330d671ab1-outlook" width=
+=3D"700px" ><table align=3D"center" border=3D"0" cellpadding=3D"0" cellsp=
+acing=3D"0" class=3D"ed-block-outlook ed-block-5e3d16a9-9ef9-42ec-90bb-a3=
+330d671ab1-outlook" role=3D"presentation" style=3D"width:700px;" width=3D=
+"700" ><tr><td style=3D"line-height:0px;font-size:0px;mso-line-height-rul=
+e:exactly;"><![endif]-->
+    =
+
+      =
+
+      <div class=3D"ed-block ed-block-5e3d16a9-9ef9-42ec-90bb-a3330d671ab=
+1" style=3D"margin:0px auto;max-width:700px;">
+        =
+
+        <table align=3D"center" border=3D"0" cellpadding=3D"0" cellspacin=
+g=3D"0" role=3D"presentation" style=3D"width:100%;">
+          <tbody>
+            <tr>
+              <td style=3D"direction:ltr;font-size:0px;padding:20px 0;pad=
+ding-bottom:0px;padding-top:0px;text-align:center;">
+                <!--[if mso | IE]><table role=3D"presentation" border=3D"=
+0" cellpadding=3D"0" cellspacing=3D"0"><tr><td class=3D"" style=3D"vertic=
+al-align:top;width:700px;" ><![endif]-->
+            =
+
+      <div class=3D"mj-column-per-100 mj-outlook-group-fix" style=3D"font=
+-size:0px;text-align:left;direction:ltr;display:inline-block;vertical-ali=
+gn:top;width:100%;">
+        =
+
+      <table border=3D"0" cellpadding=3D"0" cellspacing=3D"0" role=3D"pre=
+sentation" style=3D"vertical-align:top;" width=3D"100%">
+        <tbody>
+          =
+
+              <tr>
+                <td align=3D"center" style=3D"font-size:0px;padding:0 10p=
+x;word-break:break-word;">
+                  =
+
+      <table border=3D"0" cellpadding=3D"0" cellspacing=3D"0" role=3D"pre=
+sentation" style=3D"border-collapse:collapse;border-spacing:0px;">
+        <tbody>
+          <tr>
+            <td style=3D"width:680px;">
+              =
+
+        <a href=3D"https://emails.prtshocks.com/c/0o7p5/tibtg4lg/63e_xlbv=
+rai" target=3D"_blank">
+          =
+
+      <img alt=3D"email-divulga=C3=A7=C3=A3o_03.png" height=3D"auto" src=3D=
+"https://emails.prtshocks.com/data/ed221990c90356047ee4824e49abaa0b668b13=
+39/media_files/3/original/email-divulga%C3%A7%C3%A3o_03.png" style=3D"bor=
+der:0;display:block;outline:none;text-decoration:none;height:auto;width:1=
+00%;font-size:13px;" width=3D"680">
+    =
+
+        </a>
+      =
+
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    =
+
+                </td>
+              </tr>
+            =
+
+        </tbody>
+      </table>
+    =
+
+      </div>
+    =
+
+          <!--[if mso | IE]></td></tr></table><![endif]-->
+              </td>
+            </tr>
+          </tbody>
+        </table>
+        =
+
+      </div>
+    =
+
+      =
+
+      <!--[if mso | IE]></td></tr></table></td></tr><tr><td class=3D"ed-b=
+lock-outlook ed-block-5e239f0f-9f64-4386-81de-adac9a01afba-outlook" width=
+=3D"700px" ><table align=3D"center" border=3D"0" cellpadding=3D"0" cellsp=
+acing=3D"0" class=3D"ed-block-outlook ed-block-5e239f0f-9f64-4386-81de-ad=
+ac9a01afba-outlook" role=3D"presentation" style=3D"width:700px;" width=3D=
+"700" ><tr><td style=3D"line-height:0px;font-size:0px;mso-line-height-rul=
+e:exactly;"><![endif]-->
+    =
+
+      =
+
+      <div class=3D"ed-block ed-block-5e239f0f-9f64-4386-81de-adac9a01afb=
+a" style=3D"margin:0px auto;max-width:700px;">
+        =
+
+        <table align=3D"center" border=3D"0" cellpadding=3D"0" cellspacin=
+g=3D"0" role=3D"presentation" style=3D"width:100%;">
+          <tbody>
+            <tr>
+              <td style=3D"direction:ltr;font-size:0px;padding:20px 0;pad=
+ding-bottom:0px;padding-top:0px;text-align:center;">
+                <!--[if mso | IE]><table role=3D"presentation" border=3D"=
+0" cellpadding=3D"0" cellspacing=3D"0"><tr><td class=3D"" style=3D"vertic=
+al-align:top;width:700px;" ><![endif]-->
+            =
+
+      <div class=3D"mj-column-per-100 mj-outlook-group-fix" style=3D"font=
+-size:0px;text-align:left;direction:ltr;display:inline-block;vertical-ali=
+gn:top;width:100%;">
+        =
+
+      <table border=3D"0" cellpadding=3D"0" cellspacing=3D"0" role=3D"pre=
+sentation" style=3D"vertical-align:top;" width=3D"100%">
+        <tbody>
+          =
+
+              <tr>
+                <td align=3D"center" style=3D"font-size:0px;padding:0 10p=
+x;word-break:break-word;">
+                  =
+
+      <table border=3D"0" cellpadding=3D"0" cellspacing=3D"0" role=3D"pre=
+sentation" style=3D"border-collapse:collapse;border-spacing:0px;">
+        <tbody>
+          <tr>
+            <td style=3D"width:680px;">
+              =
+
+        <a href=3D"https://emails.prtshocks.com/c/0o7p5/tibtg4lg/thdofrak=
+i_0" target=3D"_blank">
+          =
+
+      <img alt=3D"email-divulga=C3=A7=C3=A3o_04.png" height=3D"auto" src=3D=
+"https://emails.prtshocks.com/data/ed221990c90356047ee4824e49abaa0b668b13=
+39/media_files/4/original/email-divulga%C3%A7%C3%A3o_04.png" style=3D"bor=
+der:0;display:block;outline:none;text-decoration:none;height:auto;width:1=
+00%;font-size:13px;" width=3D"680">
+    =
+
+        </a>
+      =
+
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    =
+
+                </td>
+              </tr>
+            =
+
+        </tbody>
+      </table>
+    =
+
+      </div>
+    =
+
+          <!--[if mso | IE]></td></tr></table><![endif]-->
+              </td>
+            </tr>
+          </tbody>
+        </table>
+        =
+
+      </div>
+    =
+
+      =
+
+      <!--[if mso | IE]></td></tr></table></td></tr><tr><td class=3D"ed-b=
+lock-outlook ed-block-f90154b6-69a6-4536-832a-869430d338f7-outlook" width=
+=3D"700px" ><table align=3D"center" border=3D"0" cellpadding=3D"0" cellsp=
+acing=3D"0" class=3D"ed-block-outlook ed-block-f90154b6-69a6-4536-832a-86=
+9430d338f7-outlook" role=3D"presentation" style=3D"width:700px;" width=3D=
+"700" ><tr><td style=3D"line-height:0px;font-size:0px;mso-line-height-rul=
+e:exactly;"><![endif]-->
+    =
+
+      =
+
+      <div class=3D"ed-block ed-block-f90154b6-69a6-4536-832a-869430d338f=
+7" style=3D"margin:0px auto;max-width:700px;">
+        =
+
+        <table align=3D"center" border=3D"0" cellpadding=3D"0" cellspacin=
+g=3D"0" role=3D"presentation" style=3D"width:100%;">
+          <tbody>
+            <tr>
+              <td style=3D"direction:ltr;font-size:0px;padding:20px 0;pad=
+ding-bottom:0px;padding-top:0px;text-align:center;">
+                <!--[if mso | IE]><table role=3D"presentation" border=3D"=
+0" cellpadding=3D"0" cellspacing=3D"0"><tr><td class=3D"" style=3D"vertic=
+al-align:top;width:700px;" ><![endif]-->
+            =
+
+      <div class=3D"mj-column-per-100 mj-outlook-group-fix" style=3D"font=
+-size:0px;text-align:left;direction:ltr;display:inline-block;vertical-ali=
+gn:top;width:100%;">
+        =
+
+      <table border=3D"0" cellpadding=3D"0" cellspacing=3D"0" role=3D"pre=
+sentation" style=3D"vertical-align:top;" width=3D"100%">
+        <tbody>
+          =
+
+              <tr>
+                <td align=3D"center" style=3D"font-size:0px;padding:0 10p=
+x;word-break:break-word;">
+                  =
+
+      <table border=3D"0" cellpadding=3D"0" cellspacing=3D"0" role=3D"pre=
+sentation" style=3D"border-collapse:collapse;border-spacing:0px;">
+        <tbody>
+          <tr>
+            <td style=3D"width:680px;">
+              =
+
+        <a href=3D"https://emails.prtshocks.com/c/0o7p5/tibtg4lg/v_xjjunp=
+kpm" target=3D"_blank">
+          =
+
+      <img alt=3D"email-divulga=C3=A7=C3=A3o_05.png" height=3D"auto" src=3D=
+"https://emails.prtshocks.com/data/ed221990c90356047ee4824e49abaa0b668b13=
+39/media_files/5/original/email-divulga%C3%A7%C3%A3o_05.png" style=3D"bor=
+der:0;display:block;outline:none;text-decoration:none;height:auto;width:1=
+00%;font-size:13px;" width=3D"680">
+    =
+
+        </a>
+      =
+
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    =
+
+                </td>
+              </tr>
+            =
+
+        </tbody>
+      </table>
+    =
+
+      </div>
+    =
+
+          <!--[if mso | IE]></td></tr></table><![endif]-->
+              </td>
+            </tr>
+          </tbody>
+        </table>
+        =
+
+      </div>
+    =
+
+      =
+
+      <!--[if mso | IE]></td></tr></table></td></tr><tr><td class=3D"ed-b=
+lock-outlook ed-block-3c7e5f0b-d0f1-49d0-b646-aaf5421f9e5a-outlook" width=
+=3D"700px" ><table align=3D"center" border=3D"0" cellpadding=3D"0" cellsp=
+acing=3D"0" class=3D"ed-block-outlook ed-block-3c7e5f0b-d0f1-49d0-b646-aa=
+f5421f9e5a-outlook" role=3D"presentation" style=3D"width:700px;" width=3D=
+"700" ><tr><td style=3D"line-height:0px;font-size:0px;mso-line-height-rul=
+e:exactly;"><![endif]-->
+    =
+
+      =
+
+      <div class=3D"ed-block ed-block-3c7e5f0b-d0f1-49d0-b646-aaf5421f9e5=
+a" style=3D"margin:0px auto;max-width:700px;">
+        =
+
+        <table align=3D"center" border=3D"0" cellpadding=3D"0" cellspacin=
+g=3D"0" role=3D"presentation" style=3D"width:100%;">
+          <tbody>
+            <tr>
+              <td style=3D"direction:ltr;font-size:0px;padding:20px 0;pad=
+ding-bottom:0px;padding-top:0px;text-align:center;">
+                <!--[if mso | IE]><table role=3D"presentation" border=3D"=
+0" cellpadding=3D"0" cellspacing=3D"0"><tr><td class=3D"" style=3D"vertic=
+al-align:top;width:700px;" ><![endif]-->
+            =
+
+      <div class=3D"mj-column-per-100 mj-outlook-group-fix" style=3D"font=
+-size:0px;text-align:left;direction:ltr;display:inline-block;vertical-ali=
+gn:top;width:100%;">
+        =
+
+      <table border=3D"0" cellpadding=3D"0" cellspacing=3D"0" role=3D"pre=
+sentation" style=3D"vertical-align:top;" width=3D"100%">
+        <tbody>
+          =
+
+              <tr>
+                <td align=3D"center" style=3D"font-size:0px;padding:0 10p=
+x;word-break:break-word;">
+                  =
+
+      <table border=3D"0" cellpadding=3D"0" cellspacing=3D"0" role=3D"pre=
+sentation" style=3D"border-collapse:collapse;border-spacing:0px;">
+        <tbody>
+          <tr>
+            <td style=3D"width:680px;">
+              =
+
+        <a href=3D"https://emails.prtshocks.com/c/0o7p5/tibtg4lg/zm9cf1ae=
+yda" target=3D"_blank">
+          =
+
+      <img alt=3D"email-divulga=C3=A7=C3=A3o_06.png" height=3D"auto" src=3D=
+"https://emails.prtshocks.com/data/ed221990c90356047ee4824e49abaa0b668b13=
+39/media_files/6/original/email-divulga%C3%A7%C3%A3o_06.png" style=3D"bor=
+der:0;display:block;outline:none;text-decoration:none;height:auto;width:1=
+00%;font-size:13px;" width=3D"680">
+    =
+
+        </a>
+      =
+
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    =
+
+                </td>
+              </tr>
+            =
+
+        </tbody>
+      </table>
+    =
+
+      </div>
+    =
+
+          <!--[if mso | IE]></td></tr></table><![endif]-->
+              </td>
+            </tr>
+          </tbody>
+        </table>
+        =
+
+      </div>
+    =
+
+      =
+
+      <!--[if mso | IE]></td></tr></table></td></tr><tr><td class=3D"ed-b=
+lock-outlook ed-block-b6a155c7-0006-431f-bf1f-a314e992f2fe-outlook" width=
+=3D"700px" ><table align=3D"center" border=3D"0" cellpadding=3D"0" cellsp=
+acing=3D"0" class=3D"ed-block-outlook ed-block-b6a155c7-0006-431f-bf1f-a3=
+14e992f2fe-outlook" role=3D"presentation" style=3D"width:700px;" width=3D=
+"700" ><tr><td style=3D"line-height:0px;font-size:0px;mso-line-height-rul=
+e:exactly;"><![endif]-->
+    =
+
+      =
+
+      <div class=3D"ed-block ed-block-b6a155c7-0006-431f-bf1f-a314e992f2f=
+e" style=3D"margin:0px auto;max-width:700px;">
+        =
+
+        <table align=3D"center" border=3D"0" cellpadding=3D"0" cellspacin=
+g=3D"0" role=3D"presentation" style=3D"width:100%;">
+          <tbody>
+            <tr>
+              <td style=3D"direction:ltr;font-size:0px;padding:20px 0;pad=
+ding-bottom:0px;padding-top:0px;text-align:center;">
+                <!--[if mso | IE]><table role=3D"presentation" border=3D"=
+0" cellpadding=3D"0" cellspacing=3D"0"><tr><td class=3D"" style=3D"vertic=
+al-align:top;width:700px;" ><![endif]-->
+            =
+
+      <div class=3D"mj-column-per-100 mj-outlook-group-fix" style=3D"font=
+-size:0px;text-align:left;direction:ltr;display:inline-block;vertical-ali=
+gn:top;width:100%;">
+        =
+
+      <table border=3D"0" cellpadding=3D"0" cellspacing=3D"0" role=3D"pre=
+sentation" style=3D"vertical-align:top;" width=3D"100%">
+        <tbody>
+          =
+
+              <tr>
+                <td align=3D"center" style=3D"font-size:0px;padding:0 10p=
+x;word-break:break-word;">
+                  =
+
+      <table border=3D"0" cellpadding=3D"0" cellspacing=3D"0" role=3D"pre=
+sentation" style=3D"border-collapse:collapse;border-spacing:0px;">
+        <tbody>
+          <tr>
+            <td style=3D"width:680px;">
+              =
+
+        <a href=3D"https://emails.prtshocks.com/c/0o7p5/tibtg4lg/sgaia3qb=
+qda" target=3D"_blank">
+          =
+
+      <img alt=3D"email-divulga=C3=A7=C3=A3o_07.png" height=3D"auto" src=3D=
+"https://emails.prtshocks.com/data/ed221990c90356047ee4824e49abaa0b668b13=
+39/media_files/7/original/email-divulga%C3%A7%C3%A3o_07.png" style=3D"bor=
+der:0;display:block;outline:none;text-decoration:none;height:auto;width:1=
+00%;font-size:13px;" width=3D"680">
+    =
+
+        </a>
+      =
+
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    =
+
+                </td>
+              </tr>
+            =
+
+        </tbody>
+      </table>
+    =
+
+      </div>
+    =
+
+          <!--[if mso | IE]></td></tr></table><![endif]-->
+              </td>
+            </tr>
+          </tbody>
+        </table>
+        =
+
+      </div>
+    =
+
+      =
+
+      <!--[if mso | IE]></td></tr></table></td></tr></table><![endif]-->
+              </td>
+            </tr>
+          </tbody>
+        </table>
+        =
+
+      </div>
+    =
+
+        =
+
+      <!--[if mso | IE]></td></tr></table><![endif]-->
+    =
+
+      =
+
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    =
+
+      <table align=3D"center" class=3D"ed-section ed-section-footer" bord=
+er=3D"0" cellpadding=3D"0" cellspacing=3D"0" role=3D"presentation" style=3D=
+"background:#333333;background-color:#333333;width:100%;">
+        <tbody>
+          <tr>
+            <td>
+              =
+
+        =
+
+      <!--[if mso | IE]><table align=3D"center" border=3D"0" cellpadding=3D=
+"0" cellspacing=3D"0" class=3D"ed-section-outlook ed-section-footer-outlo=
+ok" role=3D"presentation" style=3D"width:700px;" width=3D"700" bgcolor=3D=
+"#333333" ><tr><td style=3D"line-height:0px;font-size:0px;mso-line-height=
+-rule:exactly;"><![endif]-->
+    =
+
+        =
+
+      <div style=3D"margin:0px auto;max-width:700px;">
+        =
+
+        <table align=3D"center" border=3D"0" cellpadding=3D"0" cellspacin=
+g=3D"0" role=3D"presentation" style=3D"width:100%;">
+          <tbody>
+            <tr>
+              <td style=3D"direction:ltr;font-size:0px;padding:20px 0;pad=
+ding-bottom:0px;padding-top:0px;text-align:center;">
+                <!--[if mso | IE]><table role=3D"presentation" border=3D"=
+0" cellpadding=3D"0" cellspacing=3D"0"><tr><td class=3D"ed-block-outlook =
+ed-block-6-outlook" width=3D"700px" ><table align=3D"center" border=3D"0"=
+ cellpadding=3D"0" cellspacing=3D"0" class=3D"ed-block-outlook ed-block-6=
+-outlook" role=3D"presentation" style=3D"width:700px;" width=3D"700" ><tr=
+><td style=3D"line-height:0px;font-size:0px;mso-line-height-rule:exactly;=
+"><![endif]-->
+    =
+
+      =
+
+      <div class=3D"ed-block ed-block-6" style=3D"margin:0px auto;max-wid=
+th:700px;">
+        =
+
+        <table align=3D"center" border=3D"0" cellpadding=3D"0" cellspacin=
+g=3D"0" role=3D"presentation" style=3D"width:100%;">
+          <tbody>
+            <tr>
+              <td style=3D"direction:ltr;font-size:0px;padding:20px 0;pad=
+ding-bottom:20px;padding-top:20px;text-align:center;">
+                <!--[if mso | IE]><table role=3D"presentation" border=3D"=
+0" cellpadding=3D"0" cellspacing=3D"0"><tr><td class=3D"" style=3D"vertic=
+al-align:top;width:700px;" ><![endif]-->
+            =
+
+      <div class=3D"mj-column-per-100 mj-outlook-group-fix" style=3D"font=
+-size:0px;text-align:left;direction:ltr;display:inline-block;vertical-ali=
+gn:top;width:100%;">
+        =
+
+      <table border=3D"0" cellpadding=3D"0" cellspacing=3D"0" role=3D"pre=
+sentation" style=3D"vertical-align:top;" width=3D"100%">
+        <tbody>
+          =
+
+              <tr>
+                <td align=3D"left" class=3D"ed-text-container ed-column-n=
+umber-0" style=3D"color: #ffffff; font-family: 'Helvetica Neue', Helvetic=
+a, Arial, sans-serif; font-size: 0px; padding: 0 10px; word-break: break-=
+word;">
+                  =
+
+      <div style=3D"font-family:Helvetica;font-size:15px;line-height:norm=
+al;text-align:left;color:#ffffff;"><div style=3D"text-align: justify;"><s=
+pan style=3D"font-family:Arial,Helvetica,sans-serif">In compliance with t=
+he provisions of Data Protection, to exercise your rights of access, rect=
+ification, cancellation and opposition to the processing of your personal=
+ data, contained in our data protection conditions, you only have to resp=
+ond to this e-mail indicating your email in the subject, or by sending an=
+ ordinary mail to the address: INCLUDE ADDRESS. If you want to unsubscrib=
+e you can also click=C2=A0<a href=3D"https://emails.prtshocks.com/unsubsc=
+ribe/0o7p5/click?token=3Dtibtg4lg" target=3D"_blank" style=3D"color: #337=
+ab7; text-decoration: underline;">here</a>.</span></div></div>
+    =
+
+                </td>
+              </tr>
+            =
+
+        </tbody>
+      </table>
+    =
+
+      </div>
+    =
+
+          <!--[if mso | IE]></td></tr></table><![endif]-->
+              </td>
+            </tr>
+          </tbody>
+        </table>
+        =
+
+      </div>
+    =
+
+      =
+
+      <!--[if mso | IE]></td></tr></table></td></tr></table><![endif]-->
+              </td>
+            </tr>
+          </tbody>
+        </table>
+        =
+
+      </div>
+    =
+
+        =
+
+      <!--[if mso | IE]></td></tr></table><![endif]-->
+    =
+
+      =
+
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    =
+
+      </div>
+    =
+
+      =
+
+    =
+
+  <img src=3D"https://emails.prtshocks.com/i/0o7p5/tibtg4lg.gif" width=3D=
+"1" height=3D"1" alt=3D"">
+</body>
+</html>
+
+----==_mimepart_66adee968cb04_1382e827597d--
