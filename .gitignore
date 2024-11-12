@@ -2,3 +2,5 @@
 /build/blocked_clients
 /build/blocked_senders
 /build/antispam-*
+!/mails/.gitkeep
+/mails/*
