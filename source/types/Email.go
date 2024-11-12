@@ -199,7 +199,7 @@ func ParseEmail(buffer []byte) *Email {
 
 			if strings.Contains(address, "@") {
 
-				domain := strings.TrimSpace(address[strings.Index(address, "@")+1:])
+				domain := strings.ToLower(strings.TrimSpace(address[strings.Index(address, "@")+1:]))
 
 				if domain != "" {
 					email.Domains = append(email.Domains, domain)
@@ -272,8 +272,8 @@ func ParseEmail(buffer []byte) *Email {
 				tmp1 = tmp1[strings.Index(tmp1, "<")+1:len(tmp1)-1]
 			}
 
-			address := strings.TrimSpace(tmp1)
-			domain := strings.TrimSpace(address[strings.Index(address, "@")+1:])
+			address := strings.ToLower(strings.TrimSpace(tmp1))
+			domain := strings.ToLower(strings.TrimSpace(address[strings.Index(address, "@")+1:]))
 
 			email.From = address
 
@@ -289,8 +289,8 @@ func ParseEmail(buffer []byte) *Email {
 				tmp1 = tmp1[strings.Index(tmp1, "<")+1:len(tmp1)-1]
 			}
 
-			address := strings.TrimSpace(tmp1)
-			domain := strings.TrimSpace(address[strings.Index(address, "@")+1:])
+			address := strings.ToLower(strings.TrimSpace(tmp1))
+			domain := strings.ToLower(strings.TrimSpace(address[strings.Index(address, "@")+1:]))
 
 			email.To = address
 

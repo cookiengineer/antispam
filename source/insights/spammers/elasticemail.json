@@ -1,5 +1,9 @@
 [{
 	"domain": "elasticemail.com",
+	"aliases": [
+		"elasticemail.net",
+		"bounces.elasticemail.net"
+	],
 	"networks": [
 		"67.227.0.0/17",
 		"67.227.85.0/24",

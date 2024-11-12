@@ -1,0 +1,10 @@
+[{
+	"domain": "google.com",
+	"aliases": [
+		"gmail.com",
+		"googlemail.com"
+	],
+	"networks": [
+		"209.85.128.0/17"
+	]
+}]

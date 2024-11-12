@@ -4,7 +4,8 @@
 		"brevo.com",
 		"sendinblue.de",
 		"mailinblue.com",
-		"meltmail.com"
+		"meltmail.com",
+		"sender-sib.com"
 	],
 	"networks": [
 		"77.32.128.0/18",

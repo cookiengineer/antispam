@@ -44,6 +44,28 @@ cd /path/to/antispam/build;
 ./antispam-linux-amd64;
 ```
 
+## Toolchain
+
+The following tools are available to manage large folders of spam/malware/phishing emails. In order
+to use them, copy your email files to the [mails](./mails) folder and run the scripts afterwards.
+
+```bash
+# Cleanup spam
+cd /path/to/antispam/toolchain;
+go run cleanup.go --spam;
+
+# Cleanup from allowlisted domains
+go run cleanup.go --from="@example.com";
+
+# Show whether E-Mails are classified as Spam or NotSpam
+go run learn.go;
+```
+
+- `go run cleanup.go --from="johndoe@example.com"` cleans up all emails that have been sent from `johndoe@example.com`.
+- `go run cleanup.go --from="@example.com"` cleans up all emails that have been sent from `example.com`.
+- `go run cleanup.go --domain="example.com"` cleans up all emails that have been sent through or from `example.com`.
+- `go run cleanup.go --spam` cleans up all emails that have been classified as spam.
+
 
 ## Postfix Configuration
 

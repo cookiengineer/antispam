@@ -23,8 +23,10 @@ func isFile(file string) bool {
 
 func showHelp() {
 
+	console.Info("")
 	console.Info("Antispam")
 	console.Info("E-Mail Spam Classification Tool")
+	console.Info("")
 
 	console.Group("Usage: antispam [Action] [Flag] [File]")
 

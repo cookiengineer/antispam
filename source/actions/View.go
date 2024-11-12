@@ -98,7 +98,7 @@ func View(file string) (*types.Email, *structs.Spammer) {
 					console.Error("Spammer:  \"" + spammer.Domain + "\"")
 					console.Error("Reasons:  " + strings.Join(reasons, ", "))
 				} else {
-					console.Info("Rating:    E-Mail is not classified as spam.")
+					console.Info("Rating:   E-Mail is not classified as spam.")
 				}
 
 				console.GroupEnd("-------")
