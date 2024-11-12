@@ -1,6 +1,11 @@
 [{
 	"domain": "microsoft.com",
 	"aliases": [
+		"exchangelabs.com",
+		"hotmail.de",
+		"hotmail.es",
+		"hotmail.fr",
+		"hotmail.com",
 		"outlook.com"
 	],
 	"networks": [

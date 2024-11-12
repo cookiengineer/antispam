@@ -8,6 +8,7 @@ cd "${ROOT}/toolchain";
 go run cleanup.go --from="@gmail.com";
 go run cleanup.go --from="@gmx.de";
 go run cleanup.go --from="@gmx.net";
+go run cleanup.go --from="@hotmail.com";
 go run cleanup.go --from="@outlook.com";
 go run cleanup.go --from="@web.de";
 

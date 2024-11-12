@@ -59,6 +59,8 @@ func main() {
 							console.Error("Cannot parse \"" + name + "\"")
 						}
 
+					} else {
+						console.Error("Cannot parse \"" + name + "\"")
 					}
 
 				}
