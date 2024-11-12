@@ -1,0 +1,58 @@
+Return-Path: <gladys.vargas@saludquillota.cl>
+Delivered-To: johndoe@example.com
+Received: from mail.example.com
+	by mail.example.com with LMTP
+	id exsiDfXFsWbIHQQAEqqbnA
+	(envelope-from <gladys.vargas@saludquillota.cl>)
+	for <johndoe@example.com>; Tue, 06 Aug 2024 06:43:01 +0000
+Authentication-Results: mail.example.com;
+	dkim=pass (2048-bit key; unprotected) header.d=saludquillota.cl header.i=@saludquillota.cl header.a=rsa-sha256 header.s=relaystgo2 header.b=I6t6ae8B;
+	dkim-atps=neutral
+Received: from relaystgo2.tchile.com (relaystgo2.tchile.com [131.108.210.19])
+	by mail.example.com (Postfix) with ESMTPS id 97A1E20BD555
+	for <johndoe@example.com>; Tue,  6 Aug 2024 06:42:59 +0000 (UTC)
+Received: from relaystgo2.tchile.com (localhost.localdomain [127.0.0.1])
+	by relaystgo2.tchile.com (Proxmox) with ESMTP id CAD2D202223;
+	Tue,  6 Aug 2024 01:09:54 -0400 (-04)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
+	saludquillota.cl; h=cc:content-transfer-encoding:content-type
+	:content-type:date:from:from:message-id:mime-version:reply-to
+	:reply-to:subject:subject:to; s=relaystgo2; bh=d+vcVOK0TQFStQMZ+
+	3Xt9CxSrsv6XOhcYu8v8P19bFU=; b=I6t6ae8BlWsAUsMIVkr0TEGFvt6IvSCoa
+	i/C+ZzYNoaNsQyd/Jof2coAqGat9E5SzlGqYLdgj4gQ61g7W5vib0XkF4w9TFypT
+	U+ydn3a7e8esuIJzySBIZgYdOl+0pVEmEIjv4qkV4TQLhWBJXhT+T3YjN2O4kJQ2
+	p+jHD24/4jXau3VJU1DlYfcDdoxqaVZJCm1z6Rv2ghCrrgN7O2aFrH3OPhyQb4h/
+	N1RHXG8ciVEeFBUYQjLl4y19EGKDnomPUHR+fJZN8rFZY/8av7s8kDa1iFH1RU+m
+	ipXBknHMe9ZTDGe91IR4p3kxR4Fp6EM1VEjboYUPOc3Bxs9p8YMRQ==
+Date: Tue, 6 Aug 2024 01:08:27 -0400 (CLT)
+From: Al Thaqeb Fulaij <gladys.vargas@saludquillota.cl>
+Reply-To: Al Thaqeb Fulaij <fulaijceo@samelinvestmentsholdings.com>
+Message-ID: <938764576.194494.1722920907974.JavaMail.zimbra@saludquillota.cl>
+Subject: Project Financing
+MIME-Version: 1.0
+Content-Type: text/plain; charset=utf-8
+Content-Transfer-Encoding: 7bit
+X-Originating-IP: [199.188.237.230]
+X-Mailer: Zimbra 8.8.15_GA_4203 (ZimbraWebClient - FF128 (Win)/8.8.15_GA_4232)
+Thread-Index: DR8sMEeac3PfIx9Cljd7K09p+gDf4w==
+Thread-Topic: Project Financing
+
+
+
+Greetings,
+Are you an entrepreneur,business owner,CFO or chief executive officer seeking capital for your business growth or expansion?
+
+I'm contacting you to know if you are open to investors into your company as we are providing financial support to companies and individuals for business and project expansions.
+
+We also pay success fee commission to individuals who direct clients to us for financing.
+
+Samel Investment Holdings Ltd will be willing to partner with you for your business growth.
+
+Reply for further discussions if interested with your business plan or executive summary and Whats App number for an introductory call.
+
+Ignore if not interested.
+
+Allah bless you in good health and sound mind,
+Mr. Al Thaqeb Fulaij (CEO)
+Samel Investment Holdings Ltd Dubai, United Arab Emirates
+

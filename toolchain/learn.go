@@ -84,12 +84,14 @@ func main() {
 
 				if len(reasons) == 1 && spammer.Domain == reasons[0] {
 
+					console.Log("")
 					console.Group(name)
 					console.Error("Blocked via \"" + spammer.Domain + "\" because of " + strings.Join(reasons, ", "))
 					console.GroupEnd(name)
 
 				} else {
 
+					console.Log("")
 					console.Group(name)
 					console.Error("Blocked via \"" + spammer.Domain + "\" because of " + strings.Join(reasons, ", "))
 
@@ -127,7 +129,7 @@ func main() {
 				email := NotSpam[name]
 
 				console.Log("")
-				console.Group("Headers")
+				console.Group(name)
 
 				console.Log("ID:       " + email.MessageID)
 				console.Log("Boundary: " + email.Boundary)
@@ -145,8 +147,6 @@ func main() {
 				console.Log("IPv4s:    " + strings.Join(email.IPv4s, ", "))
 				console.Log("IPv6s:    " + strings.Join(email.IPv6s, ", "))
 				console.Info("Rating:   E-Mail is not classified as spam.")
-
-				console.GroupEnd("-------")
 
 				console.GroupEnd(name)
 

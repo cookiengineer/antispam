@@ -1,9 +1,27 @@
 package types
 
 import utils_strings "antispam/utils/strings"
+import "encoding/base64"
 import "slices"
 import "strings"
 import "time"
+
+func toASCIIMessage(raw string) string {
+
+	lines := make([]string, 0)
+
+	raw_lines := strings.Split(strings.TrimSpace(string(raw)), "\n")
+
+	for l := 0; l < len(raw_lines); l++ {
+
+		line := utils_strings.ToASCII(raw_lines[l])
+		lines = append(lines, line)
+
+	}
+
+	return strings.Join(lines, "\n")
+
+}
 
 func parseBoundary(content string) string {
 
@@ -93,7 +111,7 @@ func IsEmail(buffer []byte) bool {
 
 		if strings.HasPrefix(line, "From: ") {
 			found_from = true
-		} else if strings.HasPrefix(line, "To: ") {
+		} else if strings.HasPrefix(line, "To: ") || strings.HasPrefix(line, "Delivered-To: ") {
 			found_to = true
 		} else if strings.HasPrefix(line, "Received: ") {
 			found_received = true
@@ -407,8 +425,42 @@ func ParseEmail(buffer []byte) *Email {
 
 	}
 
+	if email.To == "" {
+
+		if _, ok := headers["delivered-to"]; ok {
+
+			for _, raw := range headers["delivered-to"] {
+
+				tmp := strings.TrimSpace(raw)
+
+				if strings.Contains(tmp, "<") && strings.HasSuffix(tmp, ">") {
+					tmp = tmp[strings.Index(tmp, "<")+1:len(tmp)-1]
+				}
+
+				if strings.Contains(tmp, "@") {
+
+					address := strings.ToLower(strings.TrimSpace(tmp))
+					domain := strings.ToLower(strings.TrimSpace(address[strings.Index(address, "@")+1:]))
+
+					email.To = address
+
+					if !slices.Contains(email.Domains, domain) {
+						email.Domains = append(email.Domains, domain)
+					}
+
+					break
+
+				}
+
+			}
+
+		}
+
+	}
+
 	if email.Boundary != "" {
 
+		// E-Mail with MIME Boundaries
 		raw_buffer := strings.TrimSpace(string(buffer))
 		message := strings.TrimSpace(raw_buffer[strings.Index(raw_buffer, "\n--" + email.Boundary) + len(email.Boundary)+3:])
 
@@ -420,18 +472,44 @@ func ParseEmail(buffer []byte) *Email {
 
 				if strings.Contains(content, "Content-Type: multipart/alternative") {
 
+					// Outlook format, which uses nested MIME boundaries
 					nested_boundary := parseBoundary(content)
 
 					if nested_boundary != "" {
 
-						// Outlook format, which uses nested MIME boundaries
 						nested_contents := strings.Split(message, "\n--" + nested_boundary + "\n")
 
 						for _, nested_content := range nested_contents {
 
 							if strings.Contains(nested_content, "Content-Type: text/plain") {
-								email.Message = strings.TrimSpace(nested_content)
+
+								if strings.Contains(nested_content, "Content-Transfer-Encoding: base64") {
+
+									if strings.Contains(nested_content, "\n\n") {
+
+										tmp1 := strings.TrimSpace(nested_content[strings.Index(nested_content, "\n\n"):])
+										tmp2, err2 := base64.StdEncoding.DecodeString(tmp1)
+
+										if err2 == nil {
+											email.Message = toASCIIMessage(string(tmp2))
+										}
+
+									} else {
+										// Invalid Boundary?
+									}
+
+								} else {
+
+									if strings.Contains(nested_content, "\n\n") {
+										email.Message = strings.TrimSpace(nested_content[strings.Index(nested_content, "\n\n"):])
+									} else {
+										email.Message = strings.TrimSpace(nested_content)
+									}
+
+								}
+
 								break
+
 							}
 
 						}
@@ -441,13 +519,47 @@ func ParseEmail(buffer []byte) *Email {
 				} else if strings.Contains(content, "Content-Type: text/plain") {
 
 					// Apple Mail / Thunderbird format
-					email.Message = strings.TrimSpace(content)
+					if strings.Contains(content, "Content-Transfer-Encoding: base64") {
+
+						if strings.Contains(content, "\n\n") {
+
+							tmp1 := strings.TrimSpace(content[strings.Index(content, "\n\n"):])
+							tmp2, err2 := base64.StdEncoding.DecodeString(tmp1)
+
+							if err2 == nil {
+								email.Message = toASCIIMessage(string(tmp2))
+							}
+
+						} else {
+							// Invalid Boundary?
+						}
+
+					} else {
+
+						if strings.Contains(content, "\n\n") {
+							email.Message = strings.TrimSpace(content[strings.Index(content, "\n\n"):])
+						} else {
+							email.Message = strings.TrimSpace(content)
+						}
+
+					}
+
 					break
 
 				}
 
 			}
 
+		}
+
+	} else {
+
+		// E-Mail without MIME Boundaries
+		raw_buffer := strings.TrimSpace(string(buffer))
+		message := strings.TrimSpace(raw_buffer[strings.Index(raw_buffer, "\n\n\n") + 3:])
+
+		if message != "" {
+			email.Message = message
 		}
 
 	}
