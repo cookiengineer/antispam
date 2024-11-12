@@ -61,10 +61,12 @@ go run cleanup.go --from="@example.com";
 go run learn.go;
 ```
 
-- `go run cleanup.go --from="johndoe@example.com"` cleans up all emails that have been sent from `johndoe@example.com`.
-- `go run cleanup.go --from="@example.com"` cleans up all emails that have been sent from `example.com`.
-- `go run cleanup.go --domain="example.com"` cleans up all emails that have been sent through or from `example.com`.
-- `go run cleanup.go --spam` cleans up all emails that have been classified as spam.
+[cleanup.go](./toolchain/cleanup.go) usage examples:
+
+- `go run cleanup.go --from="johndoe@example.com"`
+- `go run cleanup.go --from="@example.com"`
+- `go run cleanup.go --domain="example.com"`
+- `go run cleanup.go --spam`
 
 
 ## Postfix Configuration
