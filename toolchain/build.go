@@ -29,60 +29,69 @@ func main() {
 
 		folder := filepath.Dir(toolchain_folder)
 
-		go_os := "linux"
-		go_arch := "amd64"
-		go_output := folder + "/build/antispam-" + go_os + "_" + go_arch
-		go_source := folder + "/source/cmds/antispam/main.go"
-
-		console.Log(go_output)
-
-		var stdout bytes.Buffer
-		var stderr bytes.Buffer
-
-		cmd := exec.Command(
-			"env",
-			"CGO_ENABLED=0",
-			"GOOS="+go_os,
-			"GOARCH="+go_arch,
-			go_compiler,
-			"build",
-			"-ldflags",
-			ld_flags,
-			"-o",
-			go_output,
-			go_source,
-		)
-		cmd.Dir = folder + "/source"
-
-		console.Log(cmd.String())
-
-		cmd.Stdout = &stdout
-		cmd.Stderr = &stderr
-
-		err1 := cmd.Run()
+		entries, err1 := os.ReadDir(folder + "/source/cmds")
 
 		if err1 == nil {
 
-			console.Info("> " + go_os + " / " + go_arch)
-			console.Log("> " + go_output)
+			for _, cmd_folder := range entries {
 
-			result = true
+				go_cmd := cmd_folder.Name()
+				go_os := "linux"
+				go_arch := "amd64"
+				go_output := folder + "/build/" + go_cmd + "_" + go_os + "_" + go_arch
+				go_source := folder + "/source/cmds/" + go_cmd + "/main.go"
 
-		} else {
+				var stdout bytes.Buffer
+				var stderr bytes.Buffer
 
-			console.Error("> " + go_os + " / " + go_arch)
+				cmd := exec.Command(
+					"env",
+					"CGO_ENABLED=0",
+					"GOOS="+go_os,
+					"GOARCH="+go_arch,
+					go_compiler,
+					"build",
+					"-ldflags",
+					ld_flags,
+					"-o",
+					go_output,
+					go_source,
+				)
+				cmd.Dir = folder + "/source"
 
-			result = false
+				console.Log(cmd.String())
 
-			stdout_message := strings.TrimSpace(string(stdout.Bytes()))
-			stderr_message := strings.TrimSpace(string(stderr.Bytes()))
+				cmd.Stdout = &stdout
+				cmd.Stderr = &stderr
 
-			if stdout_message != "" {
-				console.Error(stdout_message)
-			}
+				err1 := cmd.Run()
 
-			if stderr_message != "" {
-				console.Error(stderr_message)
+				if err1 == nil {
+
+					console.Info("> " + go_os + " / " + go_arch)
+					console.Log("> " + go_output)
+
+					result = true
+
+				} else {
+
+					console.Error("> " + go_os + " / " + go_arch)
+
+					result = false
+
+					stdout_message := strings.TrimSpace(string(stdout.Bytes()))
+					stderr_message := strings.TrimSpace(string(stderr.Bytes()))
+
+					if stdout_message != "" {
+						console.Error(stdout_message)
+					}
+
+					if stderr_message != "" {
+						console.Error(stderr_message)
+					}
+
+				}
+
 			}
 
 		}

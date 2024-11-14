@@ -78,8 +78,15 @@ external `postmap` blocklists to block network prefixes and domains.
 cd /path/to/antispam/toolchain;
 
 # Upload and install postmap files
+go run build.go;
 go run postfix.go install root@your.server.tld:2222;
 ```
+
+
+## Dovecot Configuration
+
+The Dovecot configuration is documented in [DOVECOT.md](./guides/DOVECOT.md) and uses
+an external `sieve` script to pipe incoming mails to the [antispam-sieve](./cmds/antispam-sieve/main.go) wrapper.
 
 
 ## Pull Requests
