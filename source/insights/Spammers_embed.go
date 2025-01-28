@@ -5,7 +5,7 @@ import "encoding/json"
 import "embed"
 import "strings"
 
-//go:embed spammers/*.json
+//go:embed phishers/*.json spammers/*.json
 var embedded_Spammers embed.FS
 
 func init() {
