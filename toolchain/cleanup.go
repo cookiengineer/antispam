@@ -25,7 +25,7 @@ func main() {
 				tmp = tmp[1:len(tmp)-1]
 			}
 
-			cleanup_domain = tmp
+			cleanup_domain = strings.TrimSpace(tmp)
 
 		} else if strings.HasPrefix(os.Args[1], "--from=") {
 
@@ -35,7 +35,7 @@ func main() {
 				tmp = tmp[1:len(tmp)-1]
 			}
 
-			cleanup_from = tmp
+			cleanup_domain = strings.TrimSpace(tmp)
 
 		} else if os.Args[1] == "--spam" {
 
