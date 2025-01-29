@@ -1,8 +1,13 @@
 
-# Postfix Configuration
+# Postfix Installation Guide
 
-In postfix, it's important to restrict your `mail transport agent` to your own networks
-when you self-host your email server. My recommendations are the following:
+# 1. Setup Postfix
+
+Postfix uses several options to implement its `restrictions` dependent on whether postfix is used
+as a mail relay (please don't do that) or a separate mail transport agent that's running on a
+specific FQDN (fully qualified domain name).
+
+My recommendations for client and sender restrictions are the following:
 
 ```postfix
 # /etc/postfix/main.cf
@@ -18,26 +23,41 @@ smtpd_sender_restrictions = permit_sasl_authenticated reject_non_fqdn_sender rej
 smtpd_recipient_restrictions = permit_mynetworks permit_sasl_authenticated reject_unknown_recipient_domain reject_non_fqdn_recipient reject_unlisted_recipient reject_rbl_client zen.spamhaus.org check_client_access hash:/etc/postfix/blocked_clients check_sender_access hash:/etc/postfix/blocked_senders
 ```
 
-You are able to integrate local `postmap` lookup tables to block spam mails from a list
-of known senders.
+Explanations: It is possible to integrate `postmap` lookup tables to block spam mails from a list
+of known IP addresses and/or domains.
 
-- `/etc/postfix/blocked_clients` and `check_client_access` refers to the mail client (using the `smtp` protocol).
-- `/etc/postfix/blocked_senders` and `check_sender_access` refers to the `From:` field in the e-mail "file" itself.
+- `/etc/postfix/blocked_clients` and `check_client_access` refers to the mail client information that is connected via the `smtp` protocol.
+- `/etc/postfix/blocked_senders` and `check_sender_access` refers to the `From:` field in the EML / E-Mail "file" itself.
 
 
-## Postmap Generation
+## 2. Generate Postmap Files
+
+Postmap files can be generated into the build folder, from the [source/insights](../source/insights)
+dataset:
 
 ```bash
-# Generate postmap files in /build
+# Save postmap files into /build
 cd /path/to/antispam/toolchain;
-go run postfix.go generate;
+go run postfix.go;
+```
 
-# Upload postmap files to server
+## 3. Upload Postmap Files
+
+If you followed the modifications above of the `main.cf`, you need to now upload the postmap files
+to the server. For example, this can be done via `scp`:
+
+```bash
 cd /path/to/antispam/build;
 scp blocked_clients root@your.server.tld:/etc/postfix/blocked_clients;
 scp blocked_senders root@your.server.tld:/etc/postfix/blocked_senders;
+```
 
-# On the server, run postmap and restart postfix
+## 4. Restart Postfix Service
+
+On the server, you need to process the postmap files via the `postmap` command and then restart the
+postfix service for the changes to take effect:
+
+```bash
 ssh root@your.server.tld;
 postmap /etc/postfix/blocked_clients;
 postmap /etc/postfix/blocked_senders;

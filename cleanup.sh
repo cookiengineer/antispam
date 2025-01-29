@@ -4,7 +4,7 @@ ROOT=$(pwd);
 
 cd "${ROOT}/toolchain";
 
-# private email hosters
+# private email hosters (can't do shit about it, sadly)
 go run cleanup.go --from="@gmail.com";
 go run cleanup.go --from="@gmx.de";
 go run cleanup.go --from="@gmx.net";
@@ -23,12 +23,13 @@ go run cleanup.go --from="@mitre.org";
 go run cleanup.go --from="@w3c.org";
 go run cleanup.go --from="@zendesk.com";
 
-# federal governemnt
+# federal government
 go run cleanup.go --from="@bka.bund.de";
 go run cleanup.go --from="@bsi.bund.de";
 go run cleanup.go --from="@fbi.gov";
 go run cleanup.go --from="@interpol.int";
 
+# police reports
 go run cleanup.go --from="@polizei.bw.de";
 go run cleanup.go --from="@polizei.bayern.de";
 go run cleanup.go --from="@polizei.berlin.de";
