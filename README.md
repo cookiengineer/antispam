@@ -11,13 +11,13 @@ policies because they have a conflict of interest to their paying customers (obv
 
 ## Dataset
 
-The dataset is maintained in the [insights](./insights) folder. It differs between the
+The dataset is maintained in the [insights](./source/insights) folder. It differs between the
 following types of entries:
 
 - [hosts](./source/insights/hosts) which are specific domains that cannot be blocked by other means (yet).
 - [spammers](./source/insights/spammers) which are known to offer spam campaigns as a service (usually under the umbrella of AI targeted marketing campaigns).
 - [spammers/unblockable](./source/insights/spammers/unblockable) which are known to send a lot of spam via e.g. Google Forms Scams or Microsoft Azure to bypass Microsoft Exchange Filters.
-- [phishers](./source/insights/phisers) which are known to send phishing and malware campaigns.
+- [phishers](./source/insights/phishers) which are known to send phishing and malware campaigns.
 
 The abstractions behind the scenes use a form of longest-prefix hashset maps which allow this
 to be computable in a faster manner than with tries. The standalone library is available as
