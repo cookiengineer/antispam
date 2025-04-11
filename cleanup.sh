@@ -25,6 +25,7 @@ go run cleanup.go --from="@zendesk.com";
 
 # federal government
 go run cleanup.go --from="@bka.bund.de";
+go run cleanup.go --from="@bva.bund.de";
 go run cleanup.go --from="@bsi.bund.de";
 go run cleanup.go --from="@fbi.gov";
 go run cleanup.go --from="@interpol.int";
