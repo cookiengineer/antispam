@@ -1,0 +1,9 @@
+[{
+	"domain": "rapidmail.net",
+	"aliases": [
+		"rmh1.net"
+	],
+	"networks": [
+		"185.71.126.0/24"
+	]
+}]

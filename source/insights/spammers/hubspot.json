@@ -1,0 +1,12 @@
+[{
+	"domain": "hubspot.com",
+	"aliases": [
+		"hubspotemail.com",
+		"hubspotemail.net"
+	],
+	"networks": [
+		"108.179.144.0/20",
+		"143.244.80.0/20",
+		"158.247.16.0/20"
+	]
+}]
