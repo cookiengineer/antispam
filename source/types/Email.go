@@ -286,6 +286,10 @@ func ParseEmail(buffer []byte) *Email {
 
 						chunk_ip := utils_strings.Cut(tmp1, "[", "]")
 
+						if strings.HasPrefix(chunk_ip, "IPV6:") {
+							chunk_ip = strings.TrimSpace(chunk_ip[5:])
+						}
+
 						if IsIPv6(chunk_ip) {
 
 							ipv6 := ParseIPv6(chunk_ip)
