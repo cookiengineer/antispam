@@ -1,0 +1,14 @@
+[{
+	"domain": "hagro.cn",
+	"aliases": [
+		"greensky-group.com",
+		"hzgws-poe.com",
+		"realclear-bio.com",
+		"risunherb.com",
+		"ymd-audio.com"
+	],
+	"networks": [
+		"43.154.0.0/18"
+	]
+}]
+
