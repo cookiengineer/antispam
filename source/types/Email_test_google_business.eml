@@ -1,0 +1,124 @@
+Return-Path: <brandon.p@hello.tempolabs.ai>
+Delivered-To: johndoe@example.com
+Received: from mail.tholian.network
+	by mail.tholian.network with LMTP
+	id eLGQBYYcaWcnfwEAEqqbnA
+	(envelope-from <brandon.p@hello.tempolabs.ai>)
+	for <johndoe@example.com>; Mon, 23 Dec 2024 08:17:10 +0000
+Authentication-Results: mail.tholian.network;
+	dkim=pass (1024-bit key; unprotected) header.d=hello.tempolabs.ai header.i=@hello.tempolabs.ai header.a=rsa-sha256 header.s=google header.b=L5vPxh5u;
+	dkim-atps=neutral
+Received: from mail-vk1-f181.google.com (mail-vk1-f181.google.com [209.85.221.181])
+	by mail.tholian.network (Postfix) with ESMTPS id B2B4820C13EB
+	for <johndoe@example.com>; Mon, 23 Dec 2024 08:17:08 +0000 (UTC)
+Received: by mail-vk1-f181.google.com with SMTP id 71dfb90a1353d-518ae5060d4so1159325e0c.0
+        for <johndoe@example.com>; Mon, 23 Dec 2024 00:17:08 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=hello.tempolabs.ai; s=google; t=1734941826; x=1735546626; darn=tholian.network;
+        h=to:subject:message-id:date:list-unsubscribe-post:list-unsubscribe
+         :from:mime-version:from:to:cc:subject:date:message-id:reply-to;
+        bh=PneAfovyXlEQq1VYuErY+5GRZAw0sXl9K29jboPetXo=;
+        b=L5vPxh5uja05ITYSn+rlhzU7F9IZmzApPzYxHz8U/fex2azjevxKJswLsU/GRvIL2i
+         JJ4uCzEZiIg/wyXj6mq/vbc5Wl3Cfxj1D+uPAFAogGWr6FBPJK049QzhdcJUMTOpw3M4
+         L7ULwQ3OQNHQDBqAwviuvtYEiT7grBW/InPJw=
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1734941826; x=1735546626;
+        h=to:subject:message-id:date:list-unsubscribe-post:list-unsubscribe
+         :from:mime-version:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=PneAfovyXlEQq1VYuErY+5GRZAw0sXl9K29jboPetXo=;
+        b=mlfqqlPTv/SK4D0OOJCc8HsFXjsIpL99s9A091UP9rErOmsAbICTlC9CZ+5O2pou1g
+         qUn/po+O0wz6eBXVRV6Zdu/dny6zNExsAItygPr0UKMtXtePHy104kei7HpUAZZa0erd
+         pOBeAXBJybqoeLdpvgYamEHVe3ExWHaaDDHOpEo6SaztcixSFPG332EXveMKxvaT1aKk
+         ILgYSJMv7NEDfLCjKc1qtdIasdC1/NuD60DzKuYIt8w6v/YmslhuyUdMLXwjbQaDSyW4
+         Nqxu0z8c9r9zAe+stIMIboRvkPcJRZa2Abikw5UKKOkfjJUW9t4DeNWl+ZNWv0RCQlxC
+         erNA==
+X-Gm-Message-State: AOJu0YyC/pOJ1OZgco1a0vGZLtsyOhW2K5RB6Ij1V7jAoP5dMUkYAGLy
+	BJwPM29eiccIgCqZa0KxXpuulcJJgnDYzMW2B68S983SlXnbO7qrf/KbA++8w8Cp/RxVrveDqvy
+	9MxLnhZAkP/dImJi6/OZ+0yemuVk6CGNEePO9vsQkzN1B+OL/
+X-Gm-Gg: ASbGnctU4TyOAlwFQRVUnop8hsZiB5JfGvXQHzuqfB9xLq8jeynM0NEQheVob4E4Cjn
+	hDDzqj3vJLOqQ52B/spi/SVnSMof3sQBe27EWPo1ys6C1scjRn+A=
+X-Google-Smtp-Source: AGHT+IG0cX87FVcKBSapfjCMgHQDIkpE9hE8LkNvcmYgbNqA5uwyaqUswkLHQw4SSVlGr6GcmhCLNkzbfKtSkQKzapI=
+X-Received: by 2002:a05:6102:568d:b0:4af:adf8:523f with SMTP id
+ ada2fe7eead31-4b2cc35f0f9mr11134501137.9.1734941826514; Mon, 23 Dec 2024
+ 00:17:06 -0800 (PST)
+Received: from 592121963922 named unknown by gmailapi.google.com with
+ HTTPREST; Mon, 23 Dec 2024 00:17:06 -0800
+MIME-Version: 1.0
+From: Brandon Palin <brandon.p@hello.tempolabs.ai>
+List-Unsubscribe: <https://www3.tempolabs.ai/unsubscribe?lang=en&email_address=chris%40tholian.network&u_token=gAAAAABnaRHwiAwGf4iPDnoGPhZKHgQUJvD_wlPkSt34TgZ4EH6zlVvVPlRGrPc3Hrddnq9ZlWw-7nCInNmnOS9y3PYOEV_rN9lDys3eX8WFvHGSx_gyTXY%3D>,
+ <mailto:brandon.p@hello.tempolabs.ai?subject=UnsubscribeH - johndoe@example.com>
+List-Unsubscribe-Post: List-Unsubscribe=One-Click
+Date: Mon, 23 Dec 2024 00:17:06 -0800
+Message-ID: <CAOmPQAPn1pW+MdO7Vh89+dADDohCQzNkxVxY8wZfe8-EcTmH8A@mail.gmail.com>
+Subject: Reducing Build Time
+To: Chris E <johndoe@example.com>
+Content-Type: multipart/alternative; boundary="0000000000004699430629eb9f1a"
+
+--0000000000004699430629eb9f1a
+Content-Type: text/plain; charset="UTF-8"
+
+Hi Chris,
+
+Have you ever wondered how to 10X your design and development speed? At Tempo
+Labs
+<https://www3.tempolabs.ai/go?s=dd0qqDUCc8jVo72w9-GlEs1Q1zFA7zAfG4_-1IgbBnMtLfXJfT5XUkGwqzZppyPQvj-T8WcfoF_LzWhFACvhY5RJq2rjFVloZ03MlZYNkmExaEtrFGxsiKE4uVYsZQY=>,
+we've cracked the code. We combine AI with the top 1% of global freelance
+talent to deliver 1-3 features weekly, guaranteed.
+
+Our team, with experts from Microsoft, Shopify, and Google, has a 95%
+client retention rate. We've helped companies like Tholian Network triple
+their development speed at a third of the cost.
+
+Ready to revolutionize your Top Management workflow? Let's schedule a quick
+10-minute call on Wednesday.
+
+Let me know if that works,
+
+*Brandon Palin*
+Head of Growth | *Tempo Labs*
+brandon.p@hello.tempolabs.ai
+208 Adelaide St, Suite 300 Toronto, Ontario, M5H 1W7
+
+Attention: This email is confidential. To stop receiving such emails, one
+click here
+<https://www3.tempolabs.ai/unsubscribe?lang=en&email_address=chris%40tholian.network&u_token=gAAAAABnaRHwiAwGf4iPDnoGPhZKHgQUJvD_wlPkSt34TgZ4EH6zlVvVPlRGrPc3Hrddnq9ZlWw-7nCInNmnOS9y3PYOEV_rN9lDys3eX8WFvHGSx_gyTXY%3D&body>
+is enough. We respect your decision.
+
+--0000000000004699430629eb9f1a
+Content-Type: text/html; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+
+<html lang=3D"en"><head><meta content=3D"text/html; charset=3Dutf-8" http-e=
+quiv=3D"content-type"></head><body style=3D"font-family:Arial,Helvetica,san=
+s-serif;font-size:14px;line-height:19.5px"><div>Hi Chris,<br><br>Have you e=
+ver wondered how to 10X your design and development speed? At <a href=3D"ht=
+tps://www3.tempolabs.ai/go?s=3Ddd0qqDUCc8jVo72w9-GlEs1Q1zFA7zAfG4_-1IgbBnMt=
+LfXJfT5XUkGwqzZppyPQvj-T8WcfoF_LzWhFACvhY5RJq2rjFVloZ03MlZYNkmExaEtrFGxsiKE=
+4uVYsZQY=3D" rel=3D"noopener" target=3D"_blank">Tempo Labs</a>, we&#39;ve c=
+racked the code. We combine AI with the top 1% of global freelance talent t=
+o deliver 1-3 features weekly, guaranteed.=C2=A0<br><br>Our team, with expe=
+rts from Microsoft, Shopify, and Google, has a 95% client retention rate. W=
+e&#39;ve helped companies like Tholian Network triple their development spe=
+ed at a third of the cost.=C2=A0<br><br>Ready to revolutionize your Top Man=
+agement workflow? Let&#39;s schedule a quick 10-minute call on Wednesday.=
+=C2=A0<br><br>Let me know if that works,</div>
+<div><br><div><strong><span style=3D"font-size:13px;font-family:Arial,Helve=
+tica,sans-serif">Brandon Palin</span></strong></div>
+<div><span style=3D"font-family:Arial,Helvetica,sans-serif;font-size:13px">=
+Head of Growth | <strong><span style=3D"color:rgb(94,68,222)">Tempo Labs</s=
+pan></strong></span></div>
+<div><span style=3D"font-family:Arial,Helvetica,sans-serif;font-size:13px">=
+<a href=3D"mailto:brandon.p@hello.tempolabs.ai">brandon.p@hello.tempolabs.a=
+i</a></span></div>
+<div><span style=3D"font-family:Arial,Helvetica,sans-serif;font-size:13px">=
+208 Adelaide St, Suite 300 Toronto, Ontario, M5H 1W7</span></div><br><span =
+style=3D"font-size:7.0pt;font-family:&quot;Arial&quot;,sans-serif;color:gra=
+y">Attention: This email is confidential. To stop receiving such emails, on=
+e click <a href=3D"https://www3.tempolabs.ai/unsubscribe?lang=3Den&amp;emai=
+l_address=3Dchris%40tholian.network&amp;u_token=3DgAAAAABnaRHwiAwGf4iPDnoGP=
+hZKHgQUJvD_wlPkSt34TgZ4EH6zlVvVPlRGrPc3Hrddnq9ZlWw-7nCInNmnOS9y3PYOEV_rN9lD=
+ys3eX8WFvHGSx_gyTXY%3D&amp;body">here</a> is enough. We respect your decisi=
+on.</span></div></body></html>
+
+--0000000000004699430629eb9f1a--

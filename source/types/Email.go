@@ -2,6 +2,9 @@ package types
 
 import utils_strings "antispam/utils/strings"
 import "encoding/base64"
+import "io"
+import "mime"
+import mime_quotedprintable "mime/quotedprintable"
 import "slices"
 import "strings"
 import "time"
@@ -157,13 +160,20 @@ func ParseEmail(buffer []byte) *Email {
 
 		tmp := strings.TrimSpace(raw)
 
+		if strings.Contains(tmp, "(") && strings.Contains(tmp, ")") {
+			tmp = strings.TrimSpace(tmp[0:strings.Index(tmp, "(")])
+		}
+
 		time1, err1 := time.Parse(time.RFC1123, tmp)
 		time2, err2 := time.Parse(time.RFC1123Z, tmp)
+		time3, err3 := time.Parse("Mon, 2 Jan 2006 15:04:05 -0700", tmp)
 
 		if err1 == nil {
 			email.Date = time1
 		} else if err2 == nil {
 			email.Date = time2
+		} else if err3 == nil {
+			email.Date = time3
 		}
 
 	}
@@ -294,7 +304,20 @@ func ParseEmail(buffer []byte) *Email {
 		tmp := strings.TrimSpace(raw)
 
 		if tmp != "" {
-			email.Subject = utils_strings.ToASCII(tmp)
+
+			if strings.Contains(tmp, "=?utf-8") {
+
+				word_decoder := &mime.WordDecoder{}
+				decoded, err := word_decoder.DecodeHeader(tmp)
+
+				if err == nil {
+					email.Subject = decoded
+				}
+
+			} else {
+				email.Subject = utils_strings.ToASCII(tmp)
+			}
+
 		}
 
 	}
@@ -380,15 +403,51 @@ func ParseEmail(buffer []byte) *Email {
 
 									if strings.Contains(nested_content, "\n\n") {
 
-										tmp1 := strings.TrimSpace(nested_content[strings.Index(nested_content, "\n\n"):])
-										tmp2, err2 := base64.StdEncoding.DecodeString(tmp1)
+										tmp := strings.TrimSpace(nested_content[strings.Index(nested_content, "\n\n"):])
+										decoded, err := base64.StdEncoding.DecodeString(tmp)
 
-										if err2 == nil {
-											email.Message = toASCIIMessage(string(tmp2))
+										if err == nil {
+											email.Message = toASCIIMessage(string(decoded))
 										}
 
 									} else {
-										// Invalid Boundary?
+
+										// XXX: Invalid Boundary?
+										email.Message = toASCIIMessage(nested_content)
+
+									}
+
+								} else if strings.Contains(nested_content, "Content-Transfer-Encoding: quoted-printable") {
+
+									if strings.Contains(nested_content, "\n\n") {
+
+										if strings.Contains(nested_content, "=\n") {
+											nested_content = strings.Join(strings.Split(nested_content, "=\n"), "")
+										}
+
+										tmp := strings.TrimSpace(nested_content[strings.Index(nested_content, "\n\n"):])
+										reader := mime_quotedprintable.NewReader(strings.NewReader(tmp))
+										decoded, err := io.ReadAll(reader)
+
+										if err == nil {
+											email.Message = strings.TrimSpace(string(decoded))
+										}
+
+									} else {
+
+										// XXX: Invalid Boundary?
+
+										if strings.Contains(nested_content, "=\n") {
+											nested_content = strings.Join(strings.Split(nested_content, "=\n"), "")
+										}
+
+										reader := mime_quotedprintable.NewReader(strings.NewReader(nested_content))
+										decoded, err := io.ReadAll(reader)
+
+										if err == nil {
+											email.Message = strings.TrimSpace(string(decoded))
+										}
+
 									}
 
 								} else {
@@ -396,6 +455,7 @@ func ParseEmail(buffer []byte) *Email {
 									if strings.Contains(nested_content, "\n\n") {
 										email.Message = strings.TrimSpace(nested_content[strings.Index(nested_content, "\n\n"):])
 									} else {
+										// XXX: Invalid Boundary?
 										email.Message = strings.TrimSpace(nested_content)
 									}
 
@@ -421,6 +481,26 @@ func ParseEmail(buffer []byte) *Email {
 
 							if err2 == nil {
 								email.Message = toASCIIMessage(string(tmp2))
+							}
+
+						} else {
+							// Invalid Boundary?
+						}
+
+					} else if strings.Contains(content, "Content-Transfer-Encoding: quoted-printable") {
+
+						if strings.Contains(content, "=\n") {
+							content = strings.Join(strings.Split(content, "=\n"), "")
+						}
+
+						if strings.Contains(content, "\n\n") {
+
+							tmp := strings.TrimSpace(content[strings.Index(content, "\n\n"):])
+							reader := mime_quotedprintable.NewReader(strings.NewReader(tmp))
+							decoded, err := io.ReadAll(reader)
+
+							if err == nil {
+								email.Message = strings.TrimSpace(string(decoded))
 							}
 
 						} else {
