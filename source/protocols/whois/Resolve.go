@@ -1,7 +1,6 @@
 package whois
 
 import "antispam/types"
-import "io"
 import "net"
 import "strings"
 import "time"
@@ -12,14 +11,16 @@ func Resolve(question string, server *types.Server) []byte {
 
 	if question != "" && server != nil {
 
-		remote_address := net.TCPAddr{
-			IP:   net.ParseIP(server.RandomizeAddress()),
-			Port: 43,
-		}
+		address := strings.Trim(server.RandomizeAddress(), "[]")
+		address = net.JoinHostPort(address, "43")
 
-		connection, err1 := net.DialTCP("tcp", nil, &remote_address)
+		connection, err1 := net.DialTimeout("tcp", address, 15*time.Second)
 
 		if err1 == nil {
+
+			defer connection.Close()
+
+			connection.SetDeadline(time.Now().Add(30 * time.Second))
 
 			request_buffer := make([]byte, 0)
 
@@ -62,15 +63,11 @@ func Resolve(question string, server *types.Server) []byte {
 
 				if err2 == nil && size > 0 {
 					response_buffer = append(response_buffer, chunk[0:size]...)
-				} else if err2 == io.EOF {
+				} else {
 					break
-				} else if size == 0 {
-					time.Sleep(1 * time.Second)
 				}
 
 			}
-
-			defer connection.Close()
 
 		}
 
