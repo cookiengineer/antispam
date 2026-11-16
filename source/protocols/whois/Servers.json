@@ -1,0 +1,89 @@
+[{
+	"domain": "rr.level3.net",
+	"protocol": "whois",
+	"schema": "LEVEL3",
+	"addresses": [
+		"155.70.118.31"
+	]
+}, {
+	"domain": "whois.iana.org",
+	"protocol": "whois",
+	"schema": "IANA",
+	"addresses": [
+		"192.0.32.59"
+	]
+}, {
+	"domain": "whois.afrinic.net",
+	"protocol": "whois",
+	"schema": "AFRINIC",
+	"addresses": [
+		"196.192.115.21",
+		"196.192.115.22",
+		"196.216.2.20",
+		"196.216.2.21",
+		"2001:42d0:0:201::20",
+		"2001:42d0:0:201::21",
+		"2001:42d0:2:601::21",
+		"2001:42d0:2:601::22"
+	]
+}, {
+	"domain": "whois.apnic.net",
+	"protocol": "whois",
+	"schema": "APNIC",
+	"addresses": [
+		"136.244.64.117",
+		"2001:19f0:7401:8fd4:5400:5ff:fe35:cb0a"
+	]
+}, {
+	"domain": "rr.arin.net",
+	"protocol": "whois",
+	"schema": "ARIN",
+	"addresses": [
+		"199.5.26.110",
+		"199.71.0.110",
+		"199.212.0.152",
+		"2001:500:a9::110",
+		"2001:500:31::110",
+		"2001:500:13::152"
+	]
+}, {
+	"domain": "whois.arin.net",
+	"protocol": "whois",
+	"schema": "ARIN",
+	"addresses": [
+		"199.212.0.46",
+		"199.5.26.46",
+		"199.71.0.46",
+		"2001:500:13::46",
+		"2001:500:a9::46",
+		"2001:500:31::46"
+	]
+}, {
+	"domain": "irr.lacnic.net",
+	"protocol": "whois",
+	"schema": "LACNIC",
+	"addresses": [
+		"179.0.156.57",
+		"2001:13c7:7001:500::57"
+	]
+}, {
+	"domain": "whois.lacnic.net",
+	"protocol": "whois",
+	"schema": "LACNIC",
+	"addresses": [
+		"200.3.14.149",
+		"200.3.14.150",
+		"200.3.14.151",
+		"2001:13c7:7002:4128::149",
+		"2001:13c7:7002:4128::150",
+		"2001:13c7:7002:4128::151"
+	]
+}, {
+	"domain": "whois.ripe.net",
+	"protocol": "whois",
+	"schema": "RIPE",
+	"addresses": [
+		"193.0.6.135",
+		"2001:67c:2e8:22::c100:687"
+	]
+}]
