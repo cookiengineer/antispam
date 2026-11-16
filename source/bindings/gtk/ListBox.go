@@ -52,3 +52,17 @@ func (l *ListBox) Clear() {
 func (l *ListBox) OnRowActivated(fn func()) {
 	connectListBoxSignal(unsafe.Pointer(l.widget), fn)
 }
+
+func (l *ListBox) OnRowActivatedIndex(fn func(int)) {
+	connectListBoxIndexSignal(unsafe.Pointer(l.widget), fn)
+}
+
+func (l *ListBox) SelectRow(index int) {
+
+	row := C.gtk_list_box_get_row_at_index((*C.GtkListBox)(unsafe.Pointer(l.widget)), C.int(index))
+
+	if row != nil {
+		C.gtk_list_box_select_row((*C.GtkListBox)(unsafe.Pointer(l.widget)), row)
+	}
+
+}

@@ -7,24 +7,30 @@ package gtk
 #include <stdlib.h>
 
 extern void goSignalCallback(int id);
-extern void goMainCallback(int id);
+extern gboolean goMainCallback(int id);
 
 extern gpointer intToPointer(int id);
 extern int pointerToInt(gpointer ptr);
 
 extern void cSignalCallback(GtkWidget *widget, gpointer data);
+extern void cNotifyCallback(GObject *object, GParamSpec *pspec, gpointer data);
 extern gboolean cMainCallback(gpointer data);
 extern void cListBoxRowActivated(GtkListBox *box, GtkListBoxRow *row, gpointer data);
+extern void cListBoxRowActivatedIndex(GtkListBox *box, GtkListBoxRow *row, gpointer data);
+
+extern void goListBoxRowCallback(int id, int index);
 */
 import "C"
 import "sync"
 import "unsafe"
 
 var (
-	signalCallbacks sync.Map
-	signalCounter   int
-	mainCallbacks   sync.Map
-	mainCounter     int
+	signalCallbacks     sync.Map
+	signalCounter       int
+	mainCallbacks       sync.Map
+	mainCounter         int
+	listBoxRowCallbacks sync.Map
+	listBoxRowCounter   int
 )
 
 func registerCallback(fn func()) int {
@@ -46,10 +52,21 @@ func goSignalCallback(id C.int) {
 }
 
 //export goMainCallback
-func goMainCallback(id C.int) {
+func goMainCallback(id C.int) C.gboolean {
 	val, ok := mainCallbacks.LoadAndDelete(int(id))
 	if ok {
 		val.(func())()
+	}
+	// g_main_context_invoke attaches an idle source. Returning TRUE keeps it
+	// attached and spins the main loop forever; G_SOURCE_REMOVE is required.
+	return C.gboolean(0)
+}
+
+//export goListBoxRowCallback
+func goListBoxRowCallback(id C.int, index C.int) {
+	val, ok := listBoxRowCallbacks.Load(int(id))
+	if ok {
+		val.(func(int))(int(index))
 	}
 }
 
@@ -94,6 +111,24 @@ func connectSignal(widget unsafe.Pointer, signal string, fn func()) {
 
 }
 
+func connectNotifySignal(widget unsafe.Pointer, signal string, fn func()) {
+
+	cSignal := C.CString(signal)
+	defer C.free(unsafe.Pointer(cSignal))
+
+	id := registerCallback(fn)
+
+	C.g_signal_connect_data(
+		C.gpointer(widget),
+		cSignal,
+		C.GCallback(unsafe.Pointer(C.cNotifyCallback)),
+		gpointerFromInt(id),
+		nil,
+		0,
+	)
+
+}
+
 func connectListBoxSignal(widget unsafe.Pointer, fn func()) {
 
 	id := registerCallback(fn)
@@ -104,6 +139,27 @@ func connectListBoxSignal(widget unsafe.Pointer, fn func()) {
 		C.gpointer(widget),
 		cSignal,
 		C.GCallback(unsafe.Pointer(C.cListBoxRowActivated)),
+		gpointerFromInt(id),
+		nil,
+		0,
+	)
+
+}
+
+func connectListBoxIndexSignal(widget unsafe.Pointer, fn func(int)) {
+
+	listBoxRowCounter++
+	id := listBoxRowCounter
+
+	listBoxRowCallbacks.Store(id, fn)
+
+	cSignal := C.CString("row-activated")
+	defer C.free(unsafe.Pointer(cSignal))
+
+	C.g_signal_connect_data(
+		C.gpointer(widget),
+		cSignal,
+		C.GCallback(unsafe.Pointer(C.cListBoxRowActivatedIndex)),
 		gpointerFromInt(id),
 		nil,
 		0,

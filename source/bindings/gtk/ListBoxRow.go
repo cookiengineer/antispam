@@ -51,6 +51,25 @@ func (r *ListBoxRow) SetText(text string) {
 	)
 }
 
+func (r *ListBoxRow) SetTextWrap(text string) {
+
+	cText := C.CString(text)
+	defer C.free(unsafe.Pointer(cText))
+
+	label := C.gtk_label_new(cText)
+
+	C.gtk_label_set_wrap((*C.GtkLabel)(unsafe.Pointer(label)), C.TRUE)
+	C.gtk_label_set_xalign((*C.GtkLabel)(unsafe.Pointer(label)), C.gfloat(0.0))
+	C.gtk_widget_set_halign(label, C.GtkAlign(C.GTK_ALIGN_FILL))
+	C.gtk_widget_set_visible(label, C.TRUE)
+
+	C.gtk_list_box_row_set_child(
+		(*C.GtkListBoxRow)(unsafe.Pointer(r.widget)),
+		label,
+	)
+
+}
+
 func (r *ListBoxRow) SetChild(child *Widget) {
 	C.gtk_list_box_row_set_child(
 		(*C.GtkListBoxRow)(unsafe.Pointer(r.widget)),

@@ -46,3 +46,13 @@ func (l *Label) SetWrap(wrap bool) {
 func (l *Label) SetXAlign(align float32) {
 	C.gtk_label_set_xalign((*C.GtkLabel)(unsafe.Pointer(l.widget)), C.float(align))
 }
+
+func (l *Label) SetSelectable(selectable bool) {
+
+	if selectable == true {
+		C.gtk_label_set_selectable((*C.GtkLabel)(unsafe.Pointer(l.widget)), C.TRUE)
+	} else {
+		C.gtk_label_set_selectable((*C.GtkLabel)(unsafe.Pointer(l.widget)), C.FALSE)
+	}
+
+}

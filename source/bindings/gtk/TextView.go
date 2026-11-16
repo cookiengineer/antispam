@@ -42,6 +42,20 @@ func (t *TextView) SetCursorVisible(visible bool) {
 	}
 }
 
+func (t *TextView) SetWrapModeWordChar() {
+	C.gtk_text_view_set_wrap_mode((*C.GtkTextView)(unsafe.Pointer(t.widget)), C.GTK_WRAP_WORD_CHAR)
+}
+
+func (t *TextView) SetText(text string) {
+
+	cText := C.CString(text)
+	defer C.free(unsafe.Pointer(cText))
+
+	buffer := C.gtk_text_view_get_buffer((*C.GtkTextView)(unsafe.Pointer(t.widget)))
+	C.gtk_text_buffer_set_text(buffer, cText, C.int(-1))
+
+}
+
 func (t *TextView) Append(text string) {
 	cText := C.CString(text)
 	defer C.free(unsafe.Pointer(cText))

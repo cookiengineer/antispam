@@ -47,5 +47,5 @@ func (d *DropDown) GetSelected() uint {
 }
 
 func (d *DropDown) OnChanged(fn func()) {
-	connectSignal(unsafe.Pointer(d.widget), "notify::selected", fn)
+	connectNotifySignal(unsafe.Pointer(d.widget), "notify::selected", fn)
 }

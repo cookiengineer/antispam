@@ -3,6 +3,7 @@
 
 extern void goSignalCallback(int id);
 extern gboolean goMainCallback(int id);
+extern void goListBoxRowCallback(int id, int index);
 extern void goFileDialogCallback(char* path, int id);
 
 gpointer intToPointer(int id) {
@@ -18,6 +19,11 @@ void cSignalCallback(GtkWidget *widget, gpointer data) {
 	goSignalCallback(id);
 }
 
+void cNotifyCallback(GObject *object, GParamSpec *pspec, gpointer data) {
+	int id = GPOINTER_TO_INT(data);
+	goSignalCallback(id);
+}
+
 gboolean cMainCallback(gpointer data) {
 	int id = GPOINTER_TO_INT(data);
 	return goMainCallback(id);
@@ -26,6 +32,12 @@ gboolean cMainCallback(gpointer data) {
 void cListBoxRowActivated(GtkListBox *box, GtkListBoxRow *row, gpointer data) {
 	int id = GPOINTER_TO_INT(data);
 	goSignalCallback(id);
+}
+
+void cListBoxRowActivatedIndex(GtkListBox *box, GtkListBoxRow *row, gpointer data) {
+	int id = GPOINTER_TO_INT(data);
+	int index = gtk_list_box_row_get_index(row);
+	goListBoxRowCallback(id, index);
 }
 
 void cFileDialogCallback(GObject *source, GAsyncResult *result, gpointer data) {

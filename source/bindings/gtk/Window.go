@@ -44,6 +44,27 @@ func (w *Window) Present() {
 	C.gtk_window_present((*C.GtkWindow)(unsafe.Pointer(w.widget)))
 }
 
+func (w *Window) SetModal(modal bool) {
+
+	if modal == true {
+		C.gtk_window_set_modal((*C.GtkWindow)(unsafe.Pointer(w.widget)), C.TRUE)
+	} else {
+		C.gtk_window_set_modal((*C.GtkWindow)(unsafe.Pointer(w.widget)), C.FALSE)
+	}
+
+}
+
+func (w *Window) SetTransientFor(parent *Window) {
+
+	if parent != nil {
+		C.gtk_window_set_transient_for(
+			(*C.GtkWindow)(unsafe.Pointer(w.widget)),
+			(*C.GtkWindow)(unsafe.Pointer(parent.widget)),
+		)
+	}
+
+}
+
 func (w *Window) Close() {
 	C.gtk_window_destroy((*C.GtkWindow)(unsafe.Pointer(w.widget)))
 }
