@@ -5,5 +5,6 @@
 /build/antispam-sieve
 /build/antispam_*
 /build/antispam-sieve_*
+/build/antispam-gtk_*
 !/mails/.gitkeep
 /mails/*

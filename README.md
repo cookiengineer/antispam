@@ -44,6 +44,32 @@ antispam classify path/to/mail.eml;
 antispam mark --json path/to/mail.eml;
 ```
 
+The GTK helper is a separate application for manual triage and dataset maintenance.
+It classifies mails from [mails](./mails) using the dataset in [source/insights](./source/insights),
+performs reverse DNS and WHOIS lookups on demand, fuzzy-matches WHOIS organizations
+against known spammers, and stages prefix/domain changes as a reviewable diff.
+
+```bash
+# Build the GTK helper (requires gtk4 development files and gcc)
+cd /path/to/antispam/toolchain;
+go run build-app.go;
+
+# Run the helper
+cd /path/to/antispam/build;
+./antispam-gtk_linux_amd64;
+
+# Optional: use different folders
+./antispam-gtk_linux_amd64 --mails=/path/to/mails --insights=/path/to/source/insights;
+```
+
+When a mail is confirmed as Spam or Not Spam, the helper moves it into
+`mails/archive` so that the working `mails` folder only contains unreviewed mails.
+Unblockable providers are treated as Not Spam and archived as well.
+
+Dataset changes are staged in memory and shown as a unified diff. The `Save` button
+writes the changed JSON/hosts files; it does not create a git commit. Rebuild the
+`antispam` CLI afterwards if you want the embedded dataset to include those changes.
+
 
 ## Building
 
@@ -53,9 +79,12 @@ The build [toolchain](./toolchain) is implemented in `go`, so you only need to i
 # Install go compiler/framework
 sudo pacman -S go;
 
-# Build binary
+# Build binaries
 cd /path/to/antispam/toolchain;
 go run build.go;
+
+# Build the GTK helper (requires CGO and gtk4)
+go run build-app.go;
 
 # Execute binary
 cd /path/to/antispam/build;
@@ -114,6 +143,11 @@ phishing/fraud companies that are part of international scam and malware campaig
 [postfix.go](./toolchain/postfix.go):
 
 - `go run postfix.go` generates `postmap` compatible files into the [build](./build) folder.
+
+[build-app.go](./toolchain/build-app.go):
+
+- `go run build-app.go` builds the GTK helper into [build](./build) as `antispam-gtk_linux_amd64`.
+- `go run build-app.go --release` strips symbols; `--debug` keeps debug symbols.
 
 
 ## Postfix Configuration

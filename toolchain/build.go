@@ -36,6 +36,13 @@ func main() {
 			for _, cmd_folder := range entries {
 
 				go_cmd := cmd_folder.Name()
+
+				// The GTK app requires CGO and is built via build-app.go
+				if go_cmd == "antispam-gtk" {
+					console.Warn("> Skipping " + go_cmd + " (use build-app.go)")
+					continue
+				}
+
 				go_os := "linux"
 				go_arch := "amd64"
 				go_output := folder + "/build/" + go_cmd + "_" + go_os + "_" + go_arch

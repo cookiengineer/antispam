@@ -1,10 +1,12 @@
 
 ## How To Add A New Entry
 
-Currently, the process for adding new entries goes like this, and is pretty manual as of
-now. I'm working on automating this by creating an intelligent `whois` client, but that
-takes some more work to be failsafe due to how the protocol doesn't have any schema that
-any server adheres to.
+The GTK helper automates the reverse-DNS/WHOIS/fuzzy-matching part of this workflow.
+Build it with `go run build-app.go` from the `toolchain` folder, then use the
+`Review & Save` button to inspect the generated diff before writing the dataset.
+
+The manual process is documented below for reference. It is still useful when the
+WHOIS data is incomplete or the organization does not match an existing entry.
 
 1. Open the E-Mail headers (`View source`, `view headers` or similar)
 

@@ -3,10 +3,29 @@ package types
 import "slices"
 import "strings"
 
+func between(value string, open string, close string) (string, bool) {
+
+	start := strings.Index(value, open)
+
+	if start < 0 {
+		return "", false
+	}
+
+	start += len(open)
+	end := strings.Index(value[start:], close)
+
+	if end < 0 {
+		return "", false
+	}
+
+	return value[start : start+end], true
+
+}
+
 func parseReceived(content string) []string {
 
 	result := make([]string, 0)
-	lines  := strings.Split(strings.TrimSpace(content), "\n")
+	lines := strings.Split(strings.TrimSpace(content), "\n")
 
 	for _, raw := range lines {
 
@@ -14,8 +33,15 @@ func parseReceived(content string) []string {
 
 		if strings.HasPrefix(line, "from ") && strings.Contains(line, " by ") && strings.Contains(line, " with ") {
 
-			from_chunk := line[5:strings.Index(line, " by ")]
-			by_chunk := line[strings.Index(line, " by ")+4:strings.Index(line, " with ")]
+			by_index := strings.Index(line, " by ")
+			with_index := strings.Index(line, " with ")
+
+			if by_index <= 5 || with_index <= by_index {
+				continue
+			}
+
+			from_chunk := line[5:by_index]
+			by_chunk := line[by_index+4 : with_index]
 
 			if strings.Contains(from_chunk, " (") && strings.Contains(from_chunk, ")") {
 
@@ -29,11 +55,19 @@ func parseReceived(content string) []string {
 
 				}
 
-				from_details := strings.TrimSpace(from_chunk[strings.Index(from_chunk, " (")+2:strings.Index(from_chunk, ")")])
+				from_details := ""
+
+				if tmp, ok := between(from_chunk, " (", ")"); ok == true {
+					from_details = strings.TrimSpace(tmp)
+				}
 
 				if strings.Contains(from_details, "[") && strings.Contains(from_details, "]") {
 
-					from_ip := strings.TrimSpace(from_details[strings.Index(from_details, "[")+1:strings.Index(from_details, "]")])
+					from_ip := ""
+
+					if tmp, ok := between(from_details, "[", "]"); ok == true {
+						from_ip = strings.TrimSpace(tmp)
+					}
 
 					if strings.HasPrefix(from_ip, "IPV6:") {
 						from_ip = strings.TrimSpace(from_ip[5:])
@@ -95,11 +129,19 @@ func parseReceived(content string) []string {
 
 				}
 
-				by_details := strings.TrimSpace(by_chunk[strings.Index(by_chunk, " (")+2:strings.Index(by_chunk, ")")])
+				by_details := ""
+
+				if tmp, ok := between(by_chunk, " (", ")"); ok == true {
+					by_details = strings.TrimSpace(tmp)
+				}
 
 				if strings.Contains(by_details, "[") && strings.Contains(by_details, "]") {
 
-					by_ip := strings.TrimSpace(by_details[strings.Index(by_details, "[")+1:strings.Index(by_details, "]")])
+					by_ip := ""
+
+					if tmp, ok := between(by_details, "[", "]"); ok == true {
+						by_ip = strings.TrimSpace(tmp)
+					}
 
 					if strings.HasPrefix(by_ip, "IPV6:") {
 						by_ip = strings.TrimSpace(by_ip[5:])
@@ -169,7 +211,13 @@ func parseReceived(content string) []string {
 
 		} else if strings.HasPrefix(line, "by ") && strings.Contains(line, " with ") {
 
-			by_chunk := line[strings.Index(line, " by ")+4:strings.Index(line, " with ")]
+			with_index := strings.Index(line, " with ")
+
+			if with_index <= 3 {
+				continue
+			}
+
+			by_chunk := line[3:with_index]
 
 			if strings.Contains(by_chunk, " (") && strings.Contains(by_chunk, ")") {
 
@@ -183,11 +231,19 @@ func parseReceived(content string) []string {
 
 				}
 
-				by_details := strings.TrimSpace(by_chunk[strings.Index(by_chunk, " (")+2:strings.Index(by_chunk, ")")])
+				by_details := ""
+
+				if tmp, ok := between(by_chunk, " (", ")"); ok == true {
+					by_details = strings.TrimSpace(tmp)
+				}
 
 				if strings.Contains(by_details, "[") && strings.Contains(by_details, "]") {
 
-					by_ip := strings.TrimSpace(by_details[strings.Index(by_details, "[")+1:strings.Index(by_details, "]")])
+					by_ip := ""
+
+					if tmp, ok := between(by_details, "[", "]"); ok == true {
+						by_ip = strings.TrimSpace(tmp)
+					}
 
 					if strings.HasPrefix(by_ip, "IPV6:") {
 						by_ip = strings.TrimSpace(by_ip[5:])

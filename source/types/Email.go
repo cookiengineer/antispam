@@ -37,6 +37,7 @@ type Email struct {
 	Domains   []string  `json:"domains"`
 	IPv4s     []string  `json:"ipv4s"`
 	IPv6s     []string  `json:"ipv6s"`
+	SenderIPs []string  `json:"sender_ips"`
 }
 
 func NewEmail() Email {
@@ -46,6 +47,7 @@ func NewEmail() Email {
 	email.Domains = make([]string, 0)
 	email.IPv4s = make([]string, 0)
 	email.IPv6s = make([]string, 0)
+	email.SenderIPs = make([]string, 0)
 
 	return email
 
@@ -84,6 +86,7 @@ func ParseEmail(buffer []byte) *Email {
 	email := NewEmail()
 	lines := strings.Split(strings.TrimSpace(string(buffer)), "\n")
 
+	email.SenderIPs = parseSenderIPs(headerBlock(buffer))
 
 	header := ""
 	headers := make(map[string]string, 0)
@@ -94,7 +97,7 @@ func ParseEmail(buffer []byte) *Email {
 
 			header = strings.ToLower(strings.TrimSpace(line[0:strings.Index(line, ":")]))
 
-			_, is_multiline := headers[header];
+			_, is_multiline := headers[header]
 
 			if is_multiline == true {
 
@@ -140,7 +143,7 @@ func ParseEmail(buffer []byte) *Email {
 		tmp := strings.TrimSpace(raw)
 
 		if strings.HasPrefix(tmp, "<") && strings.HasSuffix(tmp, ">") {
-			email.MessageID = tmp[1:len(tmp)-1]
+			email.MessageID = tmp[1 : len(tmp)-1]
 		}
 
 	}
@@ -240,7 +243,7 @@ func ParseEmail(buffer []byte) *Email {
 
 		if strings.Contains(tmp, "<") && strings.HasSuffix(tmp, ">") {
 
-			tmp_address := tmp[strings.Index(tmp, "<")+1:len(tmp)-1]
+			tmp_address := tmp[strings.Index(tmp, "<")+1 : len(tmp)-1]
 
 			if strings.Contains(tmp_address, "@") {
 
@@ -277,7 +280,7 @@ func ParseEmail(buffer []byte) *Email {
 		address := strings.TrimSpace(raw)
 
 		if strings.HasPrefix(address, "<") && strings.HasSuffix(address, ">") {
-			address = address[1:len(address)-1]
+			address = address[1 : len(address)-1]
 		}
 
 		if strings.Contains(address, "@") {
@@ -327,7 +330,7 @@ func ParseEmail(buffer []byte) *Email {
 		tmp := strings.TrimSpace(raw)
 
 		if strings.Contains(tmp, "<") && strings.HasSuffix(tmp, ">") {
-			tmp = tmp[strings.Index(tmp, "<")+1:len(tmp)-1]
+			tmp = tmp[strings.Index(tmp, "<")+1 : len(tmp)-1]
 		}
 
 		if strings.Contains(tmp, "@") {
@@ -352,7 +355,7 @@ func ParseEmail(buffer []byte) *Email {
 			tmp := strings.TrimSpace(raw)
 
 			if strings.Contains(tmp, "<") && strings.HasSuffix(tmp, ">") {
-				tmp = tmp[strings.Index(tmp, "<")+1:len(tmp)-1]
+				tmp = tmp[strings.Index(tmp, "<")+1 : len(tmp)-1]
 			}
 
 			if strings.Contains(tmp, "@") {
@@ -376,13 +379,19 @@ func ParseEmail(buffer []byte) *Email {
 
 		// E-Mail with MIME Boundaries
 		raw_buffer := strings.TrimSpace(string(buffer))
-		message := raw_buffer[strings.Index(raw_buffer, "\n--" + email.Boundary) + len(email.Boundary)+3:]
+		boundary_index := strings.Index(raw_buffer, "\n--"+email.Boundary)
+		message := ""
+
+		if boundary_index >= 0 {
+			message = raw_buffer[boundary_index+len(email.Boundary)+3:]
+		}
+
 		message = strings.TrimSpace(message)
 		message = strings.ReplaceAll(message, "\r\n", "\n")
 
 		if strings.Contains(message, email.Boundary) {
 
-			contents := strings.Split(message, "\n--" + email.Boundary + "\n")
+			contents := strings.Split(message, "\n--"+email.Boundary+"\n")
 
 			for _, content := range contents {
 
@@ -393,7 +402,7 @@ func ParseEmail(buffer []byte) *Email {
 
 					if nested_boundary != "" {
 
-						nested_contents := strings.Split(message, "\n--" + nested_boundary + "\n")
+						nested_contents := strings.Split(message, "\n--"+nested_boundary+"\n")
 
 						for _, nested_content := range nested_contents {
 
@@ -529,10 +538,22 @@ func ParseEmail(buffer []byte) *Email {
 
 		// E-Mail without MIME Boundaries
 		raw_buffer := strings.TrimSpace(string(buffer))
-		message := strings.TrimSpace(raw_buffer[strings.Index(raw_buffer, "\n\n\n") + 3:])
+		header_end := strings.Index(raw_buffer, "\n\n\n")
+		separator_length := 3
 
-		if message != "" {
-			email.Message = message
+		if header_end < 0 {
+			header_end = strings.Index(raw_buffer, "\n\n")
+			separator_length = 2
+		}
+
+		if header_end >= 0 {
+
+			message := strings.TrimSpace(raw_buffer[header_end+separator_length:])
+
+			if message != "" {
+				email.Message = message
+			}
+
 		}
 
 	}
@@ -546,7 +567,7 @@ func ParseEmail(buffer []byte) *Email {
 
 			domain := email.Domains[d]
 
-			if domain == email_domain || strings.HasSuffix(domain, "." + email_domain) {
+			if domain == email_domain || strings.HasSuffix(domain, "."+email_domain) {
 				// Do Nothing
 			} else {
 				filtered = append(filtered, domain)
